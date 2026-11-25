@@ -450,6 +450,10 @@ dialog.hd::backdrop{background:rgba(0,0,0,.55)}
 .xgb .small{flex:none}
 .xbody{padding:6px 0 4px 10px;border-left:3px solid var(--line);margin:6px 0 4px 4px}
 .xgsay{margin:0 0 8px}
+.xmore{margin:0 0 8px}
+.xmh{font-weight:800;margin-right:6px}
+.xmb{display:inline-block;max-width:100%;min-height:44px;text-align:left;white-space:normal;overflow-wrap:anywhere;font-weight:600;color:var(--muted)}
+.xmbody{padding:6px 0 4px 10px;border-left:3px solid var(--line);margin:6px 0 4px 4px}
 .xitem{margin:0 0 6px}
 .xib{display:flex;width:100%;align-items:center;justify-content:space-between;gap:8px;text-align:left;font-size:16px}
 .xib .small{flex:none;font-size:14px}
@@ -1188,7 +1192,7 @@ var DATA = {
         fixYesUndo:'加做：恩卜羅斯前置改成做過了', fixNoUndo:'加做：恩卜羅斯前置改成還沒做'}}
   },
   extra: {
-    say:'這裡列的是還沒排進每日流程的 Lv100 每日，共 23 個（計算站，二手）。現在排進流程的每日，交完每個都是 1.75 億經驗（玩家實測 2026-11-22，含當時的加成）；這張清單裡的還沒有人量過，遊戲檔也沒有經驗值。看這張清單、展開、收起都不會改你的進度。有一步一步引導的那一項可以打開，打開後每天都會出現在流程裡，直到你自己關掉。「建議先不做」只是建議，想做哪一個都可以告訴助手。打怪的任務，同一位 NPC 的可以先一起接、一趟打完再一起回報，比一個一個做少走很多（路線模擬），各項的「想做的話怎麼走」有寫。打怪任務的幾條規則（玩家實測 2026-11-23）：接任務之前打的不算；打完沒回報，過了凌晨 4 點會歸零；同一種怪在兩個任務裡，打一隻兩邊都算；不同地圖的同名怪也算；同時能接的任務數沒有上限。',
+    say:'這裡列的是原本沒排進每日流程的 Lv100 每日，共 23 個（計算站，二手）；右邊標「已打開」的，現在已經加進你每天的流程。現在排進流程的每日，交完每個都是 1.75 億經驗（玩家實測 2026-11-22，含當時的加成）；這張清單裡的還沒有人量過，遊戲檔也沒有經驗值。看這張清單、展開、收起都不會改你的進度。有一步一步引導的那一項可以打開，打開後每天都會出現在流程裡，直到你自己關掉。「建議先不做」只是建議，想做哪一個都可以告訴助手。打怪的任務，同一位 NPC 的可以先一起接、一趟打完再一起回報，比一個一個做少走很多（路線模擬），各項的「想做的話怎麼走」有寫。打怪任務的幾條規則（玩家實測 2026-11-23）：接任務之前打的不算；打完沒回報，過了凌晨 4 點會歸零；同一種怪在兩個任務裡，打一隻兩邊都算；不同地圖的同名怪也算；同時能接的任務數沒有上限。',
     groups:[
       {k:'hugel', t:'毀葛', items:[
         {id:'W1', n:'籌備婚禮（卡麗娜的婚禮進度）', ty:'run',
@@ -1360,7 +1364,7 @@ var DATA = {
       ]}
     ]},
   lvx: {
-    top:'這張清單照你填的等級分成三塊：已經排進每天流程的、等級到了還沒排的、等級還沒到的。「等級到了」只是照資料寫的等級來分，不代表一定接得到。幾級能接：崑崙、洛陽、天津、哎喲泰雅、朱諾、毀葛、奧丁神殿有官方公告寫（官方公告），其他地區只有計算站與巴哈寫（二手）。官方寫的都是「BaseLv○○ 以上」，沒寫上限；等級比任務高的角色還接不接得到、經驗會不會變少，還沒有人在遊戲裡試過（不知道）。舊報告說玩家的路線文到 105 之後還照樣排 Lv100 的每日（二手）。「會不會主動打人」是資料站從別的伺服器推的（二手），不一定準：米糕資料寫不主動，你實測是會主動的（玩家實測 2026-11-02）。每個任務給多少經驗，只有計算站的等級段數字（二手），寫在各段開頭。看這張清單、展開、收起都不會改你的進度；改等級可以撤銷。',
+    top:'這張清單照你填的等級分成三塊：已經排進每天流程的、等級到了的、等級還沒到的。「等級到了」只是照資料寫的等級來分，不代表一定接得到。幾級能接：崑崙、洛陽、天津、哎喲泰雅、朱諾、毀葛、奧丁神殿有官方公告寫（官方公告），其他地區只有計算站與巴哈寫（二手）。官方寫的都是「BaseLv○○ 以上」，沒寫上限；等級比任務高的角色還接不接得到、經驗會不會變少，還沒有人在遊戲裡試過（不知道）。舊報告說玩家的路線文到 105 之後還照樣排 Lv100 的每日（二手）。「會不會主動打人」是資料站從別的伺服器推的（二手），不一定準：米糕資料寫不主動，你實測是會主動的（玩家實測 2026-11-02）。每個任務給多少經驗，只有計算站的等級段數字（二手），寫在各段開頭。看這張清單、展開、收起都不會改你的進度；改等級可以撤銷。',
     inFlow:'鋼都、毀葛、朱諾每天約 12～13 個每日已經排進流程（之前的規劃），照上面「全部步驟」做，這裡不重複列。',
     low100:'現在每天流程裡的每日，計算站都標 Lv100（二手），朱諾、毀葛的官方公告也寫要 BaseLv100（官方公告），所以這一支可能還接不到。每天的流程不會因為你填的等級而改變。',
     lowMore:'還有更低等級的每日（古城、吉芬、鐘塔等），巴哈寫經驗很少（二手），這頁沒有列；想看請告訴助手。',
@@ -3293,13 +3297,20 @@ function syncUiSave(){
     if(c)o.m[n]=r;
   }
   for(i=0;i<SYNC_UI_BOOLS.length;i++){n=SYNC_UI_BOOLS[i];if(typeof ui[n]==='boolean')o.b[n]=ui[n];}
+  // 批 24-A：等級兩格打到一半、還沒按〔用這個等級〕的字（跟這個分頁現在的等級不一樣的那格才記；沒有就不放 lv 欄位）。只存 sessionStorage，不碰存檔
+  mp=lvNow();r={};c=0;
+  for(i=0;i<2;i++){
+    n=i?'p':'r';el=document.getElementById(i?'lvP':'lvR');
+    if(el&&typeof el.value==='string'&&el.value.length<=8&&el.value!==(mp[n]?String(mp[n]):'')){r[n]=el.value;c++;}
+  }
+  if(c)o.lv=r;
   s=JSON.stringify(o);
   if(s.length>100000){o.m={};s=JSON.stringify(o);}
   try{sessionStorage.setItem(SYNC_UIK,s);}catch(e){}
 }
 // 啟動段、第一次畫之前呼叫：讀（一定刪）、只有「網頁自己換新」（sessionStorage 有 syncmsg 是 remote／blocked／notelost）才用；壞值一律當沒有。回傳 {pn,y} 給畫完之後用，沒有要還原就回 null
 function syncUiLoad(){
-  var raw=null,msg='',o,i,n,v,mp,ks,j,c,r={pn:[],y:null},dayOk;
+  var raw=null,msg='',o,i,n,v,mp,ks,j,c,r={pn:[],y:null},dayOk,lvn,dd,dk;
   try{raw=sessionStorage.getItem(SYNC_UIK);if(raw!==null)sessionStorage.removeItem(SYNC_UIK);}catch(e){return null;}
   try{msg=sessionStorage.getItem(SYNC_MSG)||'';}catch(e){msg='';}
   if(typeof raw!=='string'||!raw||raw.length>200000)return null;
@@ -3309,6 +3320,15 @@ function syncUiLoad(){
     if(!o||typeof o!=='object'||Array.isArray(o)||o.v!==1)return null;
     if(o.b&&typeof o.b==='object'&&!Array.isArray(o.b)){
       for(i=0;i<SYNC_UI_BOOLS.length;i++){n=SYNC_UI_BOOLS[i];if(Object.prototype.hasOwnProperty.call(o.b,n)&&typeof o.b[n]==='boolean')ui[n]=o.b[n];}
+    }
+    // 批 24-A：等級兩格打到一半的字。只認自己的 r／p、值是字串、長度 ≤8；跟換新後存檔會顯示的字一樣的那格不算草稿；還有剩就記成 ui.lvDraft，並把等級那一塊打開（蓋過上面還原的 lvOpen）。不看 day
+    if(o.lv&&typeof o.lv==='object'&&!Array.isArray(o.lv)){
+      lvn=lvNow();dd={};c=0;
+      for(i=0;i<2;i++){
+        dk=i?'p':'r';
+        if(Object.prototype.hasOwnProperty.call(o.lv,dk)&&typeof o.lv[dk]==='string'&&o.lv[dk].length<=8&&o.lv[dk]!==(lvn[dk]?String(lvn[dk]):'')){dd[dk]=o.lv[dk];c++;}
+      }
+      if(c){ui.lvDraft=dd;ui.lvOpen=true;}
     }
     dayOk=typeof o.day==='string'&&o.day===P.day;   // 以步驟 id 為鍵的展開：換日了就不還原
     if(dayOk&&o.m&&typeof o.m==='object'&&!Array.isArray(o.m)){
@@ -3353,7 +3373,7 @@ function syncBlocked(){
 }
 // 收到別的分頁的通知
 function syncOnRemote(){
-  if(syncInputting()){if(!syncHold){syncHold=true;toast(TXT22B.syncWait);}return;}
+  if(syncInputting()){if(!syncHold){syncHold=true;toast((document.activeElement&&(document.activeElement.id==='lvR'||document.activeElement.id==='lvP'))?TXT24.syncWaitLv:TXT22B.syncWait);}return;}   // 批 24-A：游標在等級兩格時，提示改講等級那兩格
   if(document.hidden){syncHid=true;return;}
   syncReload('remote');
 }
@@ -3943,6 +3963,19 @@ var TXT23={
   hidSay:'建議先收著：Lv100 以上和以下的每日，經驗差很多（玩家 2026-11-25 說的）。計算站寫 Lv90 段每個任務的基礎經驗是 8,850,000、Lv100 段是 54,166,667（二手）；大約是六分之一（推論）。想做的話，下面每一項點開都有在哪接、要做什麼；這頁還沒有一步一步的引導，想排進每天流程請告訴助手。想全部照樣列，到網頁最上面的等級那一塊改成「照樣列」。',
   tagMat:'要交材料，來源查不到',
   countLow:'（等級到了 {n} 個，比你低的 {b} 個，還沒到 {m} 個）'
+};
+// 給玩家看的新字（批 24；規格在 每日引導_第三次外部檢查_修正規格_批24 第四節，十個鍵：24-A 放等級草稿三句、24-B 放清單標題兩句、24-C 放〔詳細資料〕五句）
+var TXT24={
+  syncLvKept:'另一個分頁剛改過紀錄，這一頁已換成最新的。你在等級那裡打的字還留著，但還沒存：看一下對不對，再按〔用這個等級〕。',
+  syncWaitLv:'另一個分頁剛改過紀錄。等你打完字、點別的地方，這一頁就會換成最新的；等級這兩格打的字會留著，但要按〔用這個等級〕才會存。',
+  lvDraftSay:'格子裡是你剛才打的字，還沒存（另一個分頁改過紀錄，這一頁換新過）。現在存的等級：{old}。看一下對不對，再按〔用這個等級〕。',
+  hNowMix:'等級到了的（{n} 個：{a} 個已打開，{b} 個還沒排進流程）',
+  hNowAll:'等級到了的（{n} 個，都已經打開）',
+  dTop:'詳細資料：這張清單怎麼分、資料哪裡來的',
+  dBand:'詳細資料：這一段的等級出處、經驗、資料來源',
+  dGrp:'詳細資料：這一區幾級能接、怎麼去、資料來源',
+  dRun:'詳細資料：為什麼這幾個照樣列、哪些事查不到',
+  dHint:'{list}：'
 };
 // 批 23-A2：DATA.report 裡「已經確認、這題不用再填」的題（照陣列位置）。K.report 的答案本來就是照位置存的（q0…），位置就是題目的身分；
 // test_batch23_A2 TA2-7 會檢查：這份清單＝DATA.report 第二欄以「這題不用再填」結尾的題（兩邊對不上就紅）
@@ -5424,10 +5457,30 @@ function optAskHtml(k,q){
   return h;
 }
 // 批 23-B3：part 可以不給（不給＝輸出跟以前逐字相同）；給 'r'（比你低的跑腿類那一塊）且這一項要交材料時，標題右邊的小字寫 tagMat
-function extraItemHtml(it,part){
-  var key='i-'+it.id,open=!!ui.xOpen[key],bid='xb-'+esc(key),tag='',h,hs;
+// 批 24-C：把一段或幾段長說明收進一顆〔詳細資料〕（預設收著；開合沿用清單的 xopen，鍵存在 ui.xOpen）。items＝[[段落的 class,原文],…]，段落的字與 class 逐字照舊；原文是空的就略過，全空就不畫。
+// 提示字：原文裡所有 **…** 粗體詞照順序取出、用「、」接起來套 TXT24.dHint（這樣「建議先不排」這類強調不會被藏住）；沒有粗體詞就不畫
+function xMore(key,label,items){
+  var raws=[],bold=[],hint='',open=!!ui.xOpen[key],bid='xb-'+key,h,i,m,re=/\*\*(.+?)\*\*/g;
+  for(i=0;i<items.length;i++){if(items[i][1])raws.push(items[i]);}
+  if(!raws.length)return '';
+  for(i=0;i<raws.length;i++){re.lastIndex=0;while((m=re.exec(raws[i][1])))bold.push(m[1]);}
+  if(bold.length)hint='<span class="xmh">'+esc(TXT24.dHint.replace('{list}',bold.join('、')))+'</span>';
+  h='<div class="xmore">'+hint+'<button type="button" class="btn mini xmb" data-act="xopen" data-k="'+esc(key)+'" data-blk="xOpen|'+esc(key)+'" aria-expanded="'+open+'" aria-controls="'+esc(bid)+'">'+esc(label)+'</button>';
+  h+='<div class="xmbody" id="'+esc(bid)+'"'+(open?'':' hidden')+'>';
+  for(i=0;i<raws.length;i++)h+='<p class="'+raws[i][0]+'">'+fmt(raws[i][1])+'</p>';
+  return h+'</div></div>';
+}
+// 批 24-B：清單項右邊的小字（不含 part 'r' 才加的 tagMat）。extraItemHtml 畫字、lvItemOpened 判斷「有沒有寫已打開」共用這一個函式，兩邊不會各算各的
+function extraItemTag(it){
+  var tag='',hs;
   if(it.opt&&DATA.opts&&DATA.opts[it.opt])tag='有引導・'+(optOn(it.opt)?(optVal(it.opt)==='pre'?'已打開・做前置中':'已打開'):'關著');   // 改：批 17-B，前置做到一半多「・做前置中」
   if(it.opt&&huntKey(it.opt)){hs=huntCellState(it.opt);if(hs==='moff')tag=HUNT_TXT.tagOff;else if(hs==='tmr'||hs==='gtmr')tag+=HUNT_TXT.tagTmr;}   // 批 21-A：打怪組「接打怪任務」關著寫 tagOff；明天才排後面接 tagTmr
+  return tag;
+}
+// 批 24-B：這一項右邊的小字會不會出現「已打開」（跟畫出來的字同一套判斷）
+function lvItemOpened(it){return extraItemTag(it).indexOf('已打開')>=0;}
+function extraItemHtml(it,part){
+  var key='i-'+it.id,open=!!ui.xOpen[key],bid='xb-'+esc(key),tag=extraItemTag(it),h;
   if(part==='r'&&it.ty==='mat')tag=tag?tag+'・'+TXT23.tagMat:TXT23.tagMat;
   h='<div class="xitem"><button type="button" class="btn xib" data-act="xopen" data-k="'+esc(key)+'" data-blk="xOpen|'+esc(key)+'" aria-expanded="'+open+'" aria-controls="'+bid+'"><span>'+esc(it.n)+'</span>'+(tag?'<span class="small">'+esc(tag)+'</span>':'')+'</button>';
   h+='<div class="xbody xrows" id="'+bid+'"'+(open?'':' hidden')+'>';
@@ -5451,7 +5504,7 @@ function renderExtra(){
 // 批 20-A：沒填等級時畫 #extraBody：Lv100 那一塊（DATA.extra，與改之前相同）→ 小標 → 其他等級各段（DATA.lvx.bands 裡沒有 ref 的段，門檻由低到高，預設收合）→ lowMore
 function lvAllRender(){
   var X=DATA.extra,L=DATA.lvx,n=0,m=0,h,i,g,rest=[];
-  h='<p class="xsay">'+fmt(X.say)+'</p>';
+  h=xMore('d-top',TXT24.dBand,[['xsay',X.say]]);   // 批 24-C（C2）：開頭那一段說明收進〔詳細資料〕
   for(i=0;i<X.groups.length;i++){
     g=X.groups[i];n+=g.items.length;
     if(!g.items.length)continue;   // 沒有項目的組不畫（同前）
@@ -5488,13 +5541,13 @@ function extraGroupHtml(g,tag,part){
   var key=(part==='k'?'gk-':'g-')+g.k,open=!!ui.xOpen[key],bid='xb-'+esc(key),h,j;
   if(part==='r'){
     h='<div class="xgrp"><p class="xsub">'+esc(g.t)+'（'+g.items.length+' 個）</p>';
-    if(g.say)h+='<p class="xgsay">'+fmt(g.say)+'</p>';
+    h+=xMore('d-gr-'+g.k,TXT24.dGrp,[['xgsay',g.say||'']]);   // 批 24-C（C4）：地區說明收進〔詳細資料〕（沒有說明就不畫）
     for(j=0;j<g.items.length;j++)h+=extraItemHtml(g.items[j],part);
     return h+'</div>';
   }
   h='<div class="xgrp"><button type="button" class="btn xgb" data-act="xopen" data-k="'+esc(key)+'" data-blk="xOpen|'+esc(key)+'" aria-expanded="'+open+'" aria-controls="'+bid+'"><span>'+esc(g.t)+'（'+g.items.length+' 個）</span>'+(tag?'<span class="small">'+esc(tag)+'</span>':'')+'</button>';
   h+='<div class="xbody" id="'+bid+'"'+(open?'':' hidden')+'>';
-  if(g.say)h+='<p class="xgsay">'+fmt(g.say)+'</p>';
+  h+=xMore((part==='k'?'d-gk-':'d-g-')+g.k,TXT24.dGrp,[['xgsay',g.say||'']]);   // 批 24-C（C4）：地區說明收進〔詳細資料〕（沒有說明就不畫）
   for(j=0;j<g.items.length;j++)h+=extraItemHtml(g.items[j],part);
   return h+'</div></div>';
 }
@@ -5609,6 +5662,7 @@ function lvShort(o){
 // 〔用這個等級〕與兩格裡按 Enter：讀兩格 → 驗證 → 沒變就只提示；有變走 recordAct（可撤銷，不動今天的進度）
 function applyLv(){
   var a=parseLv(document.getElementById('lvR').value),b=parseLv(document.getElementById('lvP').value),nv={},old=lvNow();
+  ui.lvDraft=null;   // 批 24-A：按〔用這個等級〕（或 Enter）讀完兩格之後，換新前打到一半的草稿就結束了（之後照舊：看不懂留字與紅框、沒變提示、有變存）
   ui.lvErr={r:a===null,p:b===null};
   if(a===null||b===null){renderLv();return;}   // 批 22-B2（檢查報告第 7 條）：任一格看不懂＝兩格都不存、原本的等級留著、不留撤銷；說明與紅框由 renderLv 畫（放在 same 判斷之前）
   if(typeof a==='number')nv.r=a;
@@ -5626,13 +5680,14 @@ function applyLv(){
 // 兩格與下面一行說明；正在輸入或看不懂的那一格不覆寫（字留著讓玩家改）
 function renderLv(){
   var o=lvNow(),r=document.getElementById('lvR'),p=document.getElementById('lvP'),s=document.getElementById('lvSay'),e=ui.lvErr||{},ae=document.activeElement,t;
-  var bad=!!(e.r||e.p),old=lvAny()?lvFull(o):TXT22B.lvNone;   // 批 22-B2：有一格看不懂時兩格都不覆寫（留玩家打的字）、看不懂的那格紅框
-  if(r&&!bad&&ae!==r)r.value=o.r?String(o.r):'';
-  if(p&&!bad&&ae!==p)p.value=o.p?String(o.p):'';
+  var bad=!!(e.r||e.p),old=lvAny()?lvFull(o):TXT22B.lvNone,dr=ui.lvDraft;   // 批 22-B2：有一格看不懂時兩格都不覆寫（留玩家打的字）、看不懂的那格紅框；批 24-A：dr＝換新前打到一半的字（沒有＝沒有草稿）
+  if(r&&!bad&&ae!==r)r.value=(dr&&typeof dr.r==='string')?dr.r:(o.r?String(o.r):'');
+  if(p&&!bad&&ae!==p)p.value=(dr&&typeof dr.p==='string')?dr.p:(o.p?String(o.p):'');
   if(r){if(e.r)r.setAttribute('aria-invalid','true');else r.removeAttribute('aria-invalid');}
   if(p){if(e.p)p.setAttribute('aria-invalid','true');else p.removeAttribute('aria-invalid');}
   if(e.r&&e.p)t=LV_TXT.errBoth.replace('{old}',old);
   else if(bad)t=LV_TXT.err.replace('{who}',e.r?'流氓':'祭司').replace('{old}',old);
+  else if(dr&&(typeof dr.r==='string'||typeof dr.p==='string'))t=TXT24.lvDraftSay.replace('{old}',old);   // 批 24-A：有草稿而且沒有看不懂的格
   else t=lvAny()?LV_TXT.sayNow.replace('{lv}',lvFull(o)):LV_TXT.sayNone;
   if(s)s.textContent=t;
   renderLvBar();   // 批 23-B2：最上面那一行字、〔改／填等級〕、面板裡的 #lvGo
@@ -5721,6 +5776,8 @@ function lvBandState(lv){
 }
 function lvBandGroups(b){return b.ref==='extra'?DATA.extra.groups:(b.groups||[]);}
 function lvBandN(b){var g=lvBandGroups(b),n=0,i;for(i=0;i<g.length;i++)n+=g[i].items.length;return n;}
+// 批 24-B：一段裡「已打開」的項數（lvItemOpened）
+function lvBandOpened(b){var g=lvBandGroups(b),n=0,i,j;for(i=0;i<g.length;i++){for(j=0;j<g[i].items.length;j++){if(lvItemOpened(g[i].items[j]))n++;}}return n;}
 // 一段：一顆收合鈕（右邊放小字）＋收合的內文（段說明、Lv100 段再接 DATA.extra.say、各地區）
 // 批 23-B3：part 可以不給（不給＝輸出跟以前逐字相同）。給 'r'／'k'（比你低的兩塊）時不畫段的收合鈕、沒有段的鍵，只回傳這一段過濾後的地區：'r'＝只放跑腿類的項、'k'＝只放其他的項；過濾後是 0 個的地區不畫（段名小標與段自己的 say／note 由 lvListRender 畫）
 function lvBandHtml(b,tag,part){
@@ -5737,8 +5794,7 @@ function lvBandHtml(b,tag,part){
   var key='b-'+b.lv,open=!!ui.xOpen[key],bid='xb-'+esc(key),g=lvBandGroups(b),i,h,note=(b.note&&(!lvAny()||lvBandState(b.lv).now))?String(b.note):'',sm=tag+(tag&&note?'　':'')+note;   // 批 16-5：段有 note 欄位、而且落在「等級到了」那一塊時，小字後面接 note
   h='<div class="xgrp"><button type="button" class="btn xgb" data-act="xopen" data-k="'+esc(key)+'" data-blk="xOpen|'+esc(key)+'" aria-expanded="'+open+'" aria-controls="'+bid+'"><span>'+esc(LV_TXT.band.replace('{lv}',String(b.lv)).replace('{n}',String(lvBandN(b))))+'</span>'+(sm?'<span class="small">'+esc(sm)+'</span>':'')+'</button>';
   h+='<div class="xbody" id="'+bid+'"'+(open?'':' hidden')+'>';
-  if(b.say)h+='<p class="xgsay">'+fmt(b.say)+'</p>';
-  if(b.ref==='extra'&&DATA.extra.say)h+='<p class="xgsay">'+fmt(DATA.extra.say)+'</p>';
+  h+=xMore('d-b-'+b.lv,TXT24.dBand,[['xgsay',b.say||''],['xgsay',(b.ref==='extra'&&DATA.extra.say)?DATA.extra.say:'']]);   // 批 24-C（C3）：段說明（Lv100 段再接 DATA.extra.say）放同一顆〔詳細資料〕
   for(i=0;i<g.length;i++){
     if(!g[i].items.length)continue;
     h+=extraGroupHtml(g[i],(!lvAny()&&lvGrpOpt(g[i]))?LV_TXT.tagOpt:'');   // 改：批 20-A，裁決 C1，沒填等級時地區裡有開著的開關，鈕右邊寫 tagOpt（有填等級時是空字串，輸出不變）
@@ -5747,23 +5803,24 @@ function lvBandHtml(b,tag,part){
 }
 // 有填等級時畫 #extraBody：開頭說明 → 已經排進流程的 → 現在能接的 → 還不能接的（收在一顆鈕裡）→ 最後一句
 function lvListRender(){
-  var L=DATA.lvx,o=lvNow(),bands=L.bands,nowH='',laterH='',nN=0,nM=0,h,i,b,st,low=[],names=[],k,key,open,bid,later=[],belowB=[],bl=null;
+  var L=DATA.lvx,o=lvNow(),bands=L.bands,nowH='',laterH='',nN=0,nA=0,nM=0,h,i,b,st,low=[],names=[],k,key,open,bid,later=[],belowB=[],bl=null,hn;
   if(K.below==='hide')belowB=lvBelowBands();   // 批 23-B3：選了「先收起來」而且真的有比你低的段，那幾段從「等級到了」拿出來，另外畫成兩塊
   if(o.r&&o.r<100)low.push('流氓填的是 Lv'+o.r);
   if(o.p&&o.p<100)low.push('祭司填的是 Lv'+o.p);
   for(i=0;i<bands.length;i++){
     b=bands[i];st=lvBandState(b.lv);
     if(belowB.length&&belowB.indexOf(b)>=0)continue;
-    if(st.now){nN+=lvBandN(b);nowH+=lvBandHtml(b,st.tag);}
+    if(st.now){nN+=lvBandN(b);nA+=lvBandOpened(b);nowH+=lvBandHtml(b,st.tag);}   // 批 24-B：nA＝「等級到了」那一塊裡已打開的項數
     else{nM+=lvBandN(b);later.push({b:b,tag:st.tag});}
   }
   later.sort(function(x,y){return x.b.lv-y.b.lv;});   // 批 16-5：「等級還沒到的」由近到遠＝等級門檻由低到高（離你填的等級最近的排最上面）
   for(i=0;i<later.length;i++)laterH+=lvBandHtml(later[i].b,later[i].tag);
   if(DATA.opts){for(k in DATA.opts){if(Object.prototype.hasOwnProperty.call(DATA.opts,k)&&optPlanned(k))names.push(DATA.opts[k].t);}}   // 改：批 21-A，打怪組今天有排才列
-  h='<p class="xsay">'+fmt(L.top)+'</p>';
+  h=xMore('d-top',TXT24.dTop,[['xsay',L.top]]);   // 批 24-C（C1）：開頭那一段說明收進〔詳細資料〕
   if(low.length)h+='<p class="xsay">'+esc(LV_TXT.lowPre.replace('{list}',low.join('、')))+fmt(L.low100)+'</p>';
   h+='<p class="xlvb">'+esc(LV_TXT.hFlow)+'</p><p class="xgsay">'+fmt(L.inFlow)+(names.length?esc(LV_TXT.optOn+names.join('、')+LV_TXT.optOnEnd):'')+'</p>';
-  h+='<p class="xlvb">'+esc(LV_TXT.hNow.replace('{n}',String(nN)))+'</p>';
+  hn=nA===0?LV_TXT.hNow.replace('{n}',String(nN)):(nA<nN?TXT24.hNowMix.replace('{n}',String(nN)).replace('{a}',String(nA)).replace('{b}',String(nN-nA)):TXT24.hNowAll.replace('{n}',String(nN)));   // 批 24-B：沒有已打開的＝舊標題逐字不變；有已打開又有沒打開的＝hNowMix；全部都已打開＝hNowAll
+  h+='<p class="xlvb">'+esc(hn)+'</p>';
   if(!nN)h+='<p class="xgsay">'+esc(LV_TXT.nowNone)+'</p>';
   h+=nowH;
   if(belowB.length){bl=lvBelowBlocks(belowB);h+=bl.html;}   // 批 23-B3：比你低的兩塊（跑腿類照樣列在外面／先收起來的收在一顆鈕裡）
@@ -5785,14 +5842,14 @@ function lvBelowBlocks(B){
   sayK=(nR===0);
   for(i=0;i<B.length;i++){
     b=B[i];sx='';
-    if(b.say)sx+='<p class="xgsay">'+fmt(b.say)+'</p>';
+    sx+=xMore('d-bl-'+b.lv,TXT24.dBand,[['xgsay',b.say||'']]);   // 批 24-C（C5）：段說明收進〔詳細資料〕（沒有說明就不畫）；b.note 留在外面
     if(b.note)sx+='<p class="xgsay">'+esc(b.note)+'</p>';
     seg=lvBandHtml(b,'','r');
     if(seg){rH+=(many?'<p class="xsub">'+esc('Lv'+b.lv+' 的每日')+'</p>':'')+(sayK?'':sx)+seg;}
     seg=lvBandHtml(b,'','k');
     if(seg){kH+=(many?'<p class="xsub">'+esc('Lv'+b.lv+' 的每日')+'</p>':'')+(sayK?sx:'')+seg;}
   }
-  if(nR)html+='<p class="xlvb">'+esc(TXT23.hRun.replace('{n}',String(nR)))+'</p><p class="xgsay">'+fmt(TXT23.runSay)+'</p>'+rH;
+  if(nR)html+='<p class="xlvb">'+esc(TXT23.hRun.replace('{n}',String(nR)))+'</p>'+xMore('d-run',TXT24.dRun,[['xgsay',TXT23.runSay]])+rH;   // 批 24-C（C6）：runSay 收進〔詳細資料〕
   if(nK){
     html+='<div class="xgrp"><button type="button" class="btn xgb" data-act="xopen" data-k="'+key+'" data-blk="xOpen|'+key+'" aria-expanded="'+open+'" aria-controls="'+bid+'"><span>'+esc(TXT23.hHid.replace('{n}',String(nK)))+'</span></button>';
     html+='<div class="xbody" id="'+bid+'"'+(open?'':' hidden')+'><p class="xgsay">'+fmt(TXT23.hidSay)+'</p>'+kH+'</div></div>';
@@ -8027,6 +8084,13 @@ document.addEventListener('change',function(e){
   var t=e.target;
   if(t&&t.getAttribute&&t.getAttribute('data-note')){clearTimeout(ntTimer);syncNoteSave();}
 });
+// 批 24-A：等級兩格打字。那一格在草稿裡（換新前打的字還沒存）就把草稿更新成現在的字，之後重畫不會被舊草稿蓋回去；不在草稿裡就不動
+document.addEventListener('input',function(e){
+  var t=e.target,k;
+  if(!ui.lvDraft||!t)return;
+  k=t.id==='lvR'?'r':(t.id==='lvP'?'p':'');
+  if(k&&Object.prototype.hasOwnProperty.call(ui.lvDraft,k))ui.lvDraft[k]=String(t.value);
+});
 // 「記一句」存檔：平常照舊整份寫回（saveP）；等待中（syncHold）或存檔已被別的分頁改過，只把打過的那幾格合併進存檔
 function syncNoteSave(){
   var id;
@@ -8627,7 +8691,8 @@ syncReadyAt=Date.now();
 (function(){
   var m='';
   try{m=sessionStorage.getItem(SYNC_MSG)||'';if(m)sessionStorage.removeItem(SYNC_MSG);}catch(e){m='';}
-  if(m==='remote')toast(TXT22B.syncRemote);
+  if((m==='remote'||m==='blocked')&&ui.lvDraft&&Object.keys(ui.lvDraft).length)syncToast6(TXT24.syncLvKept);   // 批 24-A：換新後還原出等級草稿，兩種訊息都改講「打的字還留著、還沒存」；notelost 照舊（那句比較重要）
+  else if(m==='remote')toast(TXT22B.syncRemote);
   else if(m==='blocked')syncToast6(TXT22B.syncBlocked);
   else if(m==='notelost')syncToast6(TXT22B.syncNoteLost);
   else{try{sessionStorage.removeItem(SYNC_LOOPK);}catch(e){}}
