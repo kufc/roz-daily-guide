@@ -2137,6 +2137,55 @@ var DATA = {
        notes:['兩個任務各自回報，每回報一個就按那一項的按鈕。沒打滿、或今天沒接到的那一個，在那一項按「兩支不同？分開記」，兩支都記「跳過」；記好再按最下面的主按鈕（它會把還沒記的那幾個都記成領到）。','回報後的等候版寫「明天再去找歌手伊姆基吧。」「已協助歌手伊姆基收集斷角，明天再來吧。」（遊戲檔），凌晨 4 點重置（遊戲檔）。','獎勵：每個給次元販賣機手冊 2 本（遊戲檔）；經驗計算站與巴哈寫每個 719,269,672（已含經驗加成，二手）。','斐揚這一段到這裡就結束了，接著收工：祭司瞬間移動、流氓蝴蝶翅膀，或祭司多開 1 顆礦石的門，回鋼都的儲存點，跟平常收工一樣，不用走回斐揚城（這兩張圖能不能用翅膀、瞬間移動、開門，還沒有人試過，推論可以）。下一步「收工回鋼都」的卡片如果寫「人已經在鋼都了」，那句是給阿伊健前置那天用的，今天你人在斐揚，不適用，照這裡寫的方法回去。'],
        go:'pay_fild05 的歌手伊姆基', act:'走回歌手伊姆基，把兩個任務一個一個回報（遊戲檔的任務名：歌手的歌曲）。', fin:'reward',
        tm:[40,120]}
+     ]},
+    {id:'z', name:'最後一趟', sub:'吃經驗藥水，一站一站去交', maps:'地圖：這一段還沒有地圖，照每一站的導航指令走',
+     intro:'**今天先不交那天才有這一段。**先吃經驗藥水，再照順序去交：（有斐揚的任務先交斐揚）朱諾 → 毀葛 → 里希塔樂 → 鋼都，最後收工。凌晨 4 點前要交完（玩家 2026-11-23 實測：沒交的過了 4 點會歸零）。每一站的格數是路線模擬算的、時間是推論，多數日子會超過一瓶 30 分鐘。便當那一站要等你在伯母那裡選了送給誰才會出現。',
+     items:[
+      {id:'8-0',holdPot:true,nm:'最後：吃經驗藥水',to:'（自己）',t:'最後一趟：兩支都吃經驗藥水',goal:'兩支都吃經驗藥水，接著照順序一站一站去交。',act:'兩支都吃經驗藥水。按下面的按鈕，網頁開始倒數 30 分鐘（一瓶 30 分鐘，玩家 2026-11-26 說的）。',go:'（就在原地）',fin:'兩支都吃了就算',btn:'兩支都吃了',walk:'0 格',cells:[0,0],tm:[10,30],notes:['經驗藥水對「交任務」那一下的經驗有沒有效：這一招是照玩家的做法排的，二手資料的經驗數字也含經驗藥水（二手）；還沒有人量過，交第一站時看一下遊戲訊息。','倒數用網頁的時鐘算，重新整理不會歸零；時間到了只提醒，不會擋按鈕。']},
+      {id:'8-1a',holdOf:'4-2d',hr:'p',hn:['p_jin','p_jin'],nm:'最後：回金成回報',to:'警衛兵金成',t:'最後一趟：回斐揚蛇林的金成，回報三個任務',goal:'回斐揚蛇林的警衛兵金成，三個任務一個一個回報。',act:'走到警衛兵金成，把打夠的任務一個一個回報。',go:'pay_fild11 的警衛兵金成',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi pay_fild11 53/311',l:'警衛兵金成'}],subs:[{k:'fwg1',nm:'驚駭森靈',t:'回報擊殺驚駭森靈',q:'4-2b',cmds:[0],quest:true,g:['4-2c']},{k:'fwg2',nm:'黑暗驚駭森靈',t:'回報擊殺黑暗驚駭森靈',q:'4-2b',cmds:[0],quest:true,g:['4-2c']},{k:'fwg3',nm:'驚駭森靈幼蟲',t:'回報擊殺驚駭森靈幼蟲',q:'4-2b',cmds:[0],quest:true,g:['4-2c']}],needs:'4-2c',tm:[60,180]},
+      {id:'8-1b',holdOf:'4-3c',hr:'p',hn:['p_imk','p_imk'],nm:'最後：回伊姆基回報',to:'歌手伊姆基',t:'最後一趟：回巨神蟒之森的伊姆基，回報兩個任務',goal:'回巨神蟒之森的歌手伊姆基，兩個任務一個一個回報。',act:'走到歌手伊姆基，把兩個任務一個一個回報。',go:'pay_fild05 的歌手伊姆基',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi pay_fild05 190/270',l:'歌手伊姆基'}],subs:[{k:'fws1',nm:'蛇后的悲鳴',t:'回報蛇后的悲鳴（皇后 50 隻）',q:'4-3a',cmds:[0],quest:true,g:['4-3b']},{k:'fws2',nm:'斷角',t:'回報斷角（斷角 3 個）',q:'4-3a',cmds:[0],quest:true,g:['4-3b']}],needs:'4-3b',tm:[40,120]},
+      {id:'8-2t',holdGo:{to:['y'],from:['p']},hn:[null,'y_frey'],nm:'最後：從斐揚回朱諾',to:'弗雷里旁',t:'最後一趟：祭司開門到弗雷里旁（從斐揚回朱諾）',goal:'祭司開傳送之陣到弗雷里旁，兩支都進去。',tWalk:'最後一趟：從斐揚回朱諾（記點還沒做）',goalWalk:'記點還沒做：兩支一起從斐揚回朱諾。',act:'祭司開傳送之陣到弗雷里旁，流氓先進，祭司再進。',go:'yuno_fild09 的弗雷里旁（記點）',fin:'arrive',btn:'兩支都到朱諾了',ore:true,memo:'u7',cmds:[{c:'/navi yuno_fild09 308/80'}],walk:'0 格（開門）',cells:[0,0],tm:[50,150],notes:['從斐揚開門到弗雷里旁，還沒有人試過。開不了的話怎麼回朱諾，這頁不知道（只知道朱諾機場有往依斯魯得的航班，遊戲檔），這段格數與時間沒算。']},
+      {id:'8-2a',holdOf:'3-12',hr:'y',hn:['y_emi','y_emi'],nm:'最後：回艾蜜莉領獎',to:'艾蜜莉',t:'最後一趟：從巢穴走回艾蜜莉回報',goal:'從最後一個巢穴走回艾蜜莉，回報哈比的巢穴，兩支都要回報。',act:'走回艾蜜莉，回報「哈比的巢穴」。',go:'yuno_fild04 的艾蜜莉',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi yuno_fild04 257/210'}],quest:true,needs:'3-11',tm:[20,60],notes:['艾蜜莉離兩個記點都遠：從最後一個巢穴走約 324 格，從爾弗雷多旁走約 940 格、從弗雷里旁走約 1,449 格，要穿好幾張有強怪的圖（路線模擬）。今天巢穴是白天最後一步，所以先交她（推論：比較省路）。']},
+      {id:'8-2b',holdOf:'3-3',hr:'y',hn:['y_frey','y_frey'],hDoor:true,nm:'最後：回弗雷里領獎',to:'弗雷里',t:'最後一趟：祭司開門到弗雷里旁，回報搭建陣地',goal:'祭司開門到弗雷里旁，回報搭建陣地，兩支都要回報。',tWalk:'最後一趟：走到弗雷里，回報搭建陣地',goalWalk:'記點還沒做：走到弗雷里，回報搭建陣地，兩支都要回報。',act:'祭司開傳送之陣到弗雷里旁，把今天搭建陣地最後要交的材料交給弗雷里。',go:'yuno_fild09 的弗雷里（記點）',fin:'reward',btn:'兩支都領到獎勵了',ore:true,memo:'u7',cmds:[{c:'/navi yuno_fild09 308/80'}],quest:true,needs:'3-2',tm:[70,210],notes:['搭建陣地是一整串，最後要回弗雷里（玩家實測 2026-11-22）；中間交給眼鏡蛇的那一步白天已經照常做了。','記點還沒做的話要用走的，這段格數沒算。']},
+      {id:'8-2c',holdOf:'3-6',hr:'y',hn:['y_guard','y_guard'],nm:'最後：便當交警備兵',to:'檢查站警備兵',t:'最後一趟：走到國界檢查站，把便當交給警備兵',goal:'走到國界檢查站，把便當交給警備兵，兩支都要交。',act:'把媽媽手便當交給檢查站警備兵。',go:'yuno_fild01 的檢查站警備兵',fin:'give',btn:'兩支都交了',cmds:[{c:'/navi yuno_fild01 196/154'}],quest:true,needs:'3-5',tm:[20,60]},
+      {id:'8-2d',holdOf:'3-7',hr:'y',hn:['y_chief','y_chief'],nm:'最後：回站長回報',to:'站長',t:'最後一趟：回站長回報國界檢查站的工作',goal:'回站長那裡回報「國界檢查站的工作」，兩支都要回報。',act:'找站長回報「國界檢查站的工作」。',go:'yuno_fild01 的站長',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi yuno_fild01 193/158'}],quest:true,needs:'3-7',tm:[20,60]},
+      {id:'8-2i',holdOf:'3-9f',hr:'y',hn:['y_cat','y_cat'],nm:'最後：貓咪手商人接＋交',to:'貓咪手商人',t:'最後一趟：到貓咪手商人，接突破性的業務項目再交材料',goal:'走到貓咪手商人，接「突破性的業務項目」再交材料，兩支都要交。',act:'跟貓咪手商人接「突破性的業務項目」，交魔羌之毛皮 10、七彩大嘴鳥之羽 10（任務原文）。',go:'yuno_fild08 的貓咪手商人',fin:'give',btn:'兩支都交了',mat:true,cmds:[{c:'/navi yuno_fild08 172/198',l:'貓咪手商人'}],quest:true,needs:'3-9f',tm:[20,60],notes:['白天收的材料是在接任務之前撿的；交不交得出去還不知道（每日回報有一題在問），交不出去時告訴助手。']},
+      {id:'8-2h',holdOf:'3-9e',hr:'y',hn:['y_stu','y_stu'],nm:'最後：回學院學生回報',to:'學院學生',t:'最後一趟：回學院學生回報完美的結尾',goal:'回學院學生，回報「完美的結尾」，兩支都要回報。',act:'找學院學生回報「完美的結尾」。',go:'yuno_fild08 的學院學生',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi yuno_fild08 179/200',l:'學院學生'}],quest:true,needs:'3-9e',tm:[20,60]},
+      {id:'8-2g',holdOf:'3-9d',hr:'y',hn:['y_acg','y_acg'],nm:'最後：回學院警備兵回報',to:'學院警備兵',t:'最後一趟：回學院警備兵回報強化學院安全',goal:'回學院的警備兵，回報「強化學院安全」，兩支都要回報。',act:'找學院警備兵回報「強化學院安全」。',go:'yuno_fild08 的學院警備兵',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi yuno_fild08 198/200',l:'學院警備兵'}],quest:true,needs:'3-9d',tm:[20,60]},
+      {id:'8-2k',holdOf:'3-13b',hr:'y',hn:['y_ang','y_ang'],nm:'最後：回安傑洛交魔羌之角',to:'安傑洛',t:'最後一趟：回安傑洛，交魔羌之角、回報',goal:'回朱諾原野 11 的安傑洛，交魔羌之角、回報，兩支都要交。',act:'找安傑洛交魔羌之角（任務原文：帶魔羌之角 10 個來）、回報。',go:'yuno_fild11 的安傑洛',fin:'reward',btn:'兩支都領到獎勵了',mat:true,cmds:[{c:'/navi yuno_fild11 171/164',l:'安傑洛旁'}],quest:true,needs:'3-13b',tm:[20,60]},
+      {id:'8-2e',holdOf:'3-9',hr:'y',hn:['y_alf','y_alf'],hDoor:true,nm:'最後：回爾弗雷多回報',to:'爾弗雷多',t:'最後一趟：祭司開門到爾弗雷多旁，回報沙妖',goal:'祭司開門到爾弗雷多旁，回報「將此詩獻給冒險家」，兩支都要回報。',tWalk:'最後一趟：走到爾弗雷多，回報沙妖',goalWalk:'記點還沒做：走到爾弗雷多，回報「將此詩獻給冒險家」，兩支都要回報。',act:'祭司開傳送之陣到爾弗雷多旁，找爾弗雷多回報。',go:'yuno_fild02 的爾弗雷多（記點）',fin:'reward',btn:'兩支都領到獎勵了',ore:true,memo:'u7',cmds:[{c:'/navi yuno_fild02 146/186',l:'爾弗雷多旁'}],quest:true,needs:'3-9',tm:[70,210],notes:['記點還沒做的話要用走的，這段格數沒算。']},
+      {id:'8-2f',holdOf:'3-9b',hr:'y',hn:['y_tuli','y_tuli'],nm:'最後：回土黎回報抓書',to:'土黎',t:'最後一趟：回土黎回報抓書',goal:'回土黎，交抓到的書、回報抓書，兩支都要回報。',act:'找土黎回報，交抓到的書（任務原文：收集 5 本左右）。',go:'yuno_fild06 的土黎',fin:'reward',btn:'兩支都領到獎勵了',mat:true,cmds:[{c:'/navi yuno_fild06 308/170',l:'土黎旁'}],quest:true,needs:'3-9b',tm:[20,60]},
+      {id:'8-2j',holdOf:'3-10d',hr:'y',hn:['y_mus','y_mus'],nm:'最後：回博物館職員回報',to:'博物館職員',t:'最後一趟：回朱諾原野 03 的博物館職員，回報三個任務',goal:'回朱諾原野 03 的博物館職員，三個任務一個一個回報。',act:'找博物館職員，把三個任務一個一個回報（凝固的岩漿 10 個要帶著）。',go:'yuno_fild03 的博物館職員',fin:'reward',btn:'剩下的都領到獎勵了',mat:true,cmds:[{c:'/navi yuno_fild03 40/150',l:'博物館職員'}],subs:[{k:'m1',nm:'七彩夢魘',t:'回報七彩夢魘的任務',q:'3-10b',cmds:[0],quest:true,g:['3-10c']},{k:'m2',nm:'七彩飛龍、地龍',t:'回報七彩飛龍＋七彩地龍的任務',q:'3-10b',cmds:[0],quest:true,g:['3-10c']},{k:'m3',nm:'凝固的岩漿',t:'交凝固的岩漿 10 個',q:'3-10b',cmds:[0],quest:true,g:['3-10c']}],needs:'3-10c',tm:[60,180]},
+      {id:'8-2l',holdOf:'3-12',hr:'y',hn:['y_emi','y_emi'],nm:'最後：走去艾蜜莉領獎',to:'艾蜜莉',t:'最後一趟：最後走去艾蜜莉回報',goal:'最後走到艾蜜莉，回報哈比的巢穴，兩支都要回報。',act:'走到艾蜜莉，回報「哈比的巢穴」。',go:'yuno_fild04 的艾蜜莉',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi yuno_fild04 257/210'}],quest:true,needs:'3-11',tm:[20,60],notes:['艾蜜莉離兩個記點都遠：從最後一個巢穴走約 324 格，從爾弗雷多旁走約 940 格、從弗雷里旁走約 1,449 格，要穿好幾張有強怪的圖（路線模擬）。今天巢穴之後還有別的步驟，所以排在朱諾最後（推論）。','建議還是走這一趟，因為沒交的過了凌晨 4 點會歸零（玩家 2026-11-23 實測）；不想走的話，在這一步按〔今天不做〕，哈比的巢穴今天就沒領到。']},
+      {id:'8-3t',holdGo:{to:['h']},hn:[null,'h_badge'],nm:'最後：用徽章去毀葛',to:'毀葛',t:'最後一趟：兩支都用伊甸園徽章 → 走出伊甸園 1 樓門口 → 到毀葛',goal:'兩支都用伊甸園徽章，走出 1 樓門口到毀葛。',act:'兩支都用伊甸園徽章，再走出伊甸園 1 樓門口。',go:'伊甸園 1 樓門口，走出去就到 hugel',fin:'arrive',btn:'兩支都到毀葛了',walk:'0 格（徽章）',cells:[0,0],tm:[30,90],notes:['早上用過的徽章，冷卻過了可以再用（玩家 2026-11-28 說的）。徽章還不能用：搭飛空艇去毀葛（飛空艇 300 Z，玩家實測 2026-11-22），這段格數沒算。']},
+      {id:'8-3a',holdOf:'2-11',hr:'h',hn:['h_sil','h_sid'],hIn:271,nm:'最後：回報西伊岱、傑特、西雷托',to:'西伊岱',t:'最後一趟：回報新食材、毀葛之味、口味前進',goal:'向西伊岱、傑特、西雷托回報領獎，兩支都要回報。',act:'照順序找西伊岱、傑特、西雷托回報（鉗子 5 個、採到的香菇或卵殼要帶著）。',go:'hugel 與 hu_in01 的西伊岱、傑特、西雷托',fin:'reward',btn:'全部都領到獎勵了',mat:true,cmds:[{c:'/navi hugel 83/97',l:'西伊岱（室外）'},{c:'/navi hugel 92/167',l:'傑特：道具店門'},{c:'/navi hu_in01 246/300',l:'傑特：屋內位置（二樓）'},{c:'/navi hugel 80/230',l:'西雷托：門'},{c:'/navi hu_in01 15/372',l:'西雷托：屋內位置'}],subs:[{k:'cid',nm:'西伊岱',t:'回報西伊岱（新食材）',q:'2-4',cmds:[0],quest:true,g:['2-6a','2-9a']},{k:'jet',nm:'傑特',t:'回報傑特（毀葛之味）',q:'2-1',cmds:[1,2],quest:true,g:['2-5a','2-10a'],need:'要帶鉗子 5（任務原文）'},{k:'sil',nm:'西雷托',t:'回報西雷托（口味前進）',q:'2-2',cmds:[3,4],quest:true,g:['2-7a','2-7b','2-7c']}],tm:[60,180]},
+      {id:'8-3c',holdOf:'2-10e',hr:'h',hn:['h_rhd','h_rhd'],nm:'最後：回羅哈丹回報',to:'羅哈丹',t:'最後一趟：回羅哈丹，回報三個任務',goal:'回羅哈丹，三個任務一個一個回報。',act:'找羅哈丹，把三個任務一個一個回報。',go:'hugel 的羅哈丹',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi hugel 69/121',l:'羅哈丹'}],subs:[{k:'ferus',nm:'湖中龍',t:'回報湖中龍（紅、綠貝勒斯）',q:'2-7d',cmds:[0],quest:true,g:['2-10c']},{k:'acidus',nm:'湖中飛龍',t:'回報湖中飛龍（俄希托斯兩種）',q:'2-7d',cmds:[0],quest:true,g:['2-10c']},{k:'hydro',nm:'湖中三頭龍',t:'回報湖中三頭龍（三頭龍）',q:'2-7d',cmds:[0],quest:true,g:['2-10c']}],needs:'2-10c',tm:[60,180]},
+      {id:'8-3d',holdOf:'2-10d',hr:'h',hn:['h_amb','h_amb'],nm:'最後：回恩卜羅斯回報',to:'恩卜羅斯',t:'最後一趟：到酒店向恩卜羅斯回報',goal:'到酒店向恩卜羅斯回報，兩支都要回報。',act:'走進酒店找恩卜羅斯，回報「對於龍的研究」。',go:'hu_in01 的恩卜羅斯（酒店裡）',fin:'reward',btn:'兩支都回報了',cmds:[{c:'/navi hugel 129/66',l:'酒店門'},{c:'/navi hu_in01 362/175',l:'恩卜羅斯（酒店裡）'}],quest:true,needs:'2-10b',tm:[20,60]},
+      {id:'8-3f',holdOf:'2-15a',hr:'h',hn:['h_odp','h_odp'],nm:'最後：回主持牧師回報',to:'主持牧師',t:'最後一趟：回教堂向主持牧師回報',goal:'回毀葛教堂裡的主持牧師，回報「移除危險物體」，兩支都要回報。',act:'走進教堂找主持牧師，回報「移除危險物體」。',go:'hu_in01 的主持牧師（教堂裡）',fin:'reward',btn:'兩支都回報了',cmds:[{c:'/navi hugel 155/114',l:'教堂的門'},{c:'/navi hu_in01 152/177',l:'主持牧師（教堂裡）'}],quest:true,needs:'2-14a',tm:[20,60]},
+      {id:'8-3g',holdOf:'2-20e',hr:'h',hn:['h_pro','h_pro'],nm:'最後：回普羅基昂回報籌備婚禮',to:'普羅基昂',t:'最後一趟：回卡麗娜旁，向普羅基昂回報籌備婚禮',goal:'回卡麗娜旁，向普羅基昂報告婚禮籌備得很順利，兩支都要回報。',act:'找普羅基昂回報籌備婚禮（找不到就問旁邊的卡麗娜）。',go:'hugel 的普羅基昂（卡麗娜旁）',fin:'reward',btn:'兩支都回報了',cmds:[{c:'/navi hugel 167/112',l:'普羅基昂'},{c:'/navi hugel 169/112',l:'卡麗娜'}],quest:true,needs:'2-20b',tm:[20,60]},
+      {id:'8-3e',holdOf:'2-15',hr:'h',hn:['h_mol','h_mol'],nm:'最後：回莫勒巴德回報',to:'莫勒巴德',t:'最後一趟：回碼頭旁的莫勒巴德，回報三個任務',goal:'回碼頭旁的莫勒巴德，三個任務一個一個回報。',act:'找莫勒巴德，把三個任務一個一個回報。',go:'hugel 的莫勒巴德（碼頭旁）',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi hugel 198/105',l:'莫勒巴德'}],subs:[{k:'skogul',nm:'皮影魔',t:'回報再次從打電報的傢伙開始（皮影魔）',q:'2-13',cmds:[0],quest:true,g:['2-14']},{k:'frus',nm:'彩色皮影魔',t:'回報再次淨化惡魔（彩色皮影魔）',q:'2-13',cmds:[0],quest:true,g:['2-14']},{k:'cube',nm:'方體惡魔',t:'回報再次在被迷惑之前（方體惡魔）',q:'2-13',cmds:[0],quest:true,g:['2-14']}],needs:'2-14',tm:[60,180]},
+      {id:'8-3b',holdOf:'2-3',hr:'h',hn:['h_mei','h_mei'],nm:'最後：玫西多雷接＋交',to:'玫西多雷',t:'最後一趟：到玫西多雷，接住宅整修再交瑪哪樹枝',goal:'找玫西多雷接「住宅整修」，交瑪哪樹枝 15，兩支都要交。',act:'跟玫西多雷接「住宅整修」，交瑪哪樹枝 15（任務原文）。',go:'hu_in01 的玫西多雷',fin:'give',btn:'兩支都交了',mat:true,cmds:[{c:'/navi hugel 153/153',l:'門'},{c:'/navi hu_in01 289/249',l:'屋內位置'}],quest:true,tm:[20,60],notes:['沒有材料時能不能先接、之後再交：不知道；這一站是到了才接、接了就交，所以不受影響。']},
+      {id:'8-4t',holdGo:{to:['l']},hn:['h_dock','l_exit'],nm:'最後：搭飛空艇去里希塔樂',to:'里希塔樂',t:'最後一趟：搭飛空艇去里希塔樂',goal:'兩支搭同一班飛空艇去里希塔樂，下船走出機場。',act:'從毀葛的露天登艇處搭飛空艇去里希塔樂（人還在朱諾的話，從朱諾機場搭）。',go:'lighthalzen（里希塔樂機場出口）',fin:'arrive',btn:'兩支都到里希塔樂了',cmds:[{c:'/navi hugel 186/147',l:'毀葛的登艇處（露天）'}],tm:[60,180],notes:['毀葛到里希塔樂的票價不知道（毀葛到朱諾是 300 Z，玩家實測 2026-11-22）。從朱諾機場搭的那條路這頁沒算。']},
+      {id:'8-4d',holdOf:'2-19c',hr:'l',hn:['l_hrk','l_hrk'],nm:'最後：回海力克交手鍊',to:'海力克',t:'最後一趟：回海力克，交犯人的手鍊',goal:'回里希塔樂城的海力克，交犯人的手鍊 20 個，兩支都要交。',act:'找海力克交犯人的手鍊 20 個。',go:'lighthalzen 的海力克',fin:'give',btn:'兩支都交了',mat:true,cmds:[{c:'/navi lighthalzen 258/98',l:'海力克'}],quest:true,needs:'2-19b',tm:[20,60]},
+      {id:'8-4e',holdOf:'2-19d',hr:'l',hn:['l_fire','l_fire'],nm:'最後：回點火的痕跡回報一樓六個',to:'點火的痕跡',t:'最後一趟：請警衛送進貧民窟，回報點火的痕跡一樓六個',goal:'請貧民窟入口的警衛送你進去，到點火的痕跡，一樓六個任務一個一個回報。',act:'找貧民窟入口的警衛進貧民窟，再找點火的痕跡，一樓六個任務一個一個回報。',go:'lighthalzen 的點火的痕跡（貧民窟裡）',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi lighthalzen 267/200',l:'貧民窟入口的警衛'},{c:'/navi lighthalzen 328/202',l:'點火的痕跡'}],subs:[{k:'lb1a',nm:'闇●劍士',t:'回報闇●劍士（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']},{k:'lb1b',nm:'闇●商人',t:'回報闇●商人（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']},{k:'lb1c',nm:'闇●盜賊',t:'回報闇●盜賊（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']},{k:'lb1d',nm:'闇●弓箭手',t:'回報闇●弓箭手（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']},{k:'lb1e',nm:'闇●服事',t:'回報闇●服事（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']},{k:'lb1f',nm:'闇●魔法師',t:'回報闇●魔法師（30 名）',q:'2-18b',cmds:[1],quest:true,g:['2-18e']}],needs:'2-18e',tm:[120,360],notes:['請警衛送進貧民窟那一下的時間沒算（網頁沒有這個估計）；警衛傳送要不要錢、對話怎麼選：不知道。']},
+      {id:'8-4f',holdOf:'2-19e',hr:'l',hn:['l_fire','l_fire'],nm:'最後：回報點火的痕跡三樓六個',to:'點火的痕跡',t:'最後一趟：回報點火的痕跡三樓六個（一個一個回報）',goal:'同一位點火的痕跡，三樓六個任務一個一個回報。',act:'找點火的痕跡，三樓六個任務一個一個回報（二手資料寫要一個一個回報）。',go:'lighthalzen 的點火的痕跡（貧民窟裡）',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi lighthalzen 267/200',l:'貧民窟入口的警衛（今天沒有排一樓時）'},{c:'/navi lighthalzen 328/202',l:'點火的痕跡'}],subs:[{k:'lb3a',nm:'闇●神射手',t:'回報闇●神射手（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']},{k:'lb3b',nm:'闇●超魔導師',t:'回報闇●超魔導師（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']},{k:'lb3c',nm:'闇●神官',t:'回報闇●神官（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']},{k:'lb3d',nm:'闇●騎士領主',t:'回報闇●騎士領主（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']},{k:'lb3e',nm:'闇●十字刺客',t:'回報闇●十字刺客（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']},{k:'lb3f',nm:'闇●神工匠',t:'回報闇●神工匠（10 名）',q:'2-18c',cmds:[1],quest:true,g:['2-19a']}],needs:'2-19a',tm:[120,360]},
+      {id:'8-4g',holdOf:'2-19f',hr:'l',hn:['l_tal','l_tal'],nm:'最後：回塔爾曼回報二樓六個',to:'塔爾曼',t:'最後一趟：回塔爾曼，回報二樓六個',goal:'走到塔爾曼，二樓六個任務一個一個回報。',act:'找塔爾曼，二樓六個任務一個一個回報。',go:'lighthalzen 的塔爾曼（貧民窟裡）',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi lighthalzen 267/200',l:'貧民窟入口的警衛（沒有點火的痕跡那幾個時）'},{c:'/navi lighthalzen 335/219',l:'塔爾曼'}],subs:[{k:'lb2a',nm:'闇●十字軍',t:'回報闇●十字軍（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']},{k:'lb2b',nm:'闇●鍊金術師',t:'回報闇●鍊金術師（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']},{k:'lb2c',nm:'闇●流氓',t:'回報闇●流氓（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']},{k:'lb2d',nm:'闇●吟遊詩人',t:'回報闇●吟遊詩人（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']},{k:'lb2e',nm:'闇●武道家',t:'回報闇●武道家（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']},{k:'lb2f',nm:'闇●賢者',t:'回報闇●賢者（30 個）',q:'2-18d',cmds:[1],quest:true,g:['2-18f']}],needs:'2-18f',tm:[120,360]},
+      {id:'8-4a',holdOf:'2-11d',hr:'l',hn:['l_teo','l_ray'],hIn:11,nm:'最後：回雷諾、泰奧多回報',to:'雷諾',t:'最後一趟：到雷諾、泰奧多，回報三個任務',goal:'走到雷諾、泰奧多，三個任務一個一個回報。',act:'找雷諾、泰奧多，把三個任務一個一個回報。',go:'lighthalzen 的雷諾、泰奧多',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi lighthalzen 208/314',l:'雷諾'},{c:'/navi lighthalzen 200/314',l:'泰奧多'}],subs:[{k:'breeze',nm:'微風',t:'回報以死神的峽谷之名（微風）',q:'2-11b',cmds:[0],quest:true,g:['2-11c']},{k:'grass',nm:'草精',t:'回報為什麼有這麼大的游泳池！（草精）',q:'2-11b',cmds:[1],quest:true,g:['2-11c']},{k:'gray',nm:'灰森靈',t:'回報輕拍腳踝！（灰森靈）',q:'2-11b',cmds:[1],quest:true,g:['2-11c']}],needs:'2-11c',tm:[60,180]},
+      {id:'8-4b',holdOf:'2-11e',hr:'l',hn:['l_boss','l_boss'],nm:'最後：走到社長，接配送',to:'社長唉呦',t:'最後一趟：走到原野 02 的社長，接第一個配送',goal:'走到原野 02 的社長唉呦，接第一個配送，兩支都要接。',act:'跟社長唉呦接第一個配送（任務原文：請將負重清空至 2000 以上）。',go:'lhz_fild02 的社長唉呦',fin:'accept',btn:'兩支都接到第一個配送了',cmds:[{c:'/navi lhz_fild02 225/239',l:'社長唉呦'}],tm:[20,60],notes:['配送要先去供貨人領貨、再背回社長，交了才算（任務原文；搬回去才得經驗是二手）。','建議第一件貨背到社長旁邊時再按〔再喝一瓶，重新倒數〕，因為領貨那段路會吃掉藥水的時間（推論；二手資料寫「回材料前先吃經驗水」）。']},
+      {id:'8-4c',holdOf:'2-11f',hr:'l',hn:['l_boss','l_boss'],hIn:1913,nm:'最後：配送一個一個送',to:'社長唉呦',t:'最後一趟：社長的配送，一個一個送',goal:'纜繩、磚頭、木材一個一個送：到供貨人領貨，背回社長交貨，兩支都要交。',act:'到供貨人領貨，背回社長唉呦交貨；交完一個再接下一個。',go:'lhz_fild02 的社長唉呦',fin:'reward',btn:'剩下的都交貨了',cmds:[{c:'/navi lhz_fild02 116/242',l:'雜貨商柯特（纜繩）'},{c:'/navi lhz_fild02 225/239',l:'社長唉呦（交貨）'},{c:'/navi lhz_fild03 288/364',l:'磚匠瑟門（磚頭）'},{c:'/navi lhz_fild01 84/235',l:'樵夫艾恩（木材）'}],subs:[{k:'rope',nm:'纜繩',t:'配送纜繩（雜貨商柯特 → 社長）',q:'2-11e',cmds:[0,1],quest:true},{k:'brick',nm:'磚頭',t:'配送磚頭（磚匠瑟門 → 社長）',q:'2-11e',cmds:[2,1],quest:true},{k:'wood',nm:'木材',t:'配送木材（樵夫艾恩 → 社長）',q:'2-11e',cmds:[3,1],quest:true}],needs:'8-4b',tm:[160,480]},
+      {id:'8-5t',holdGo:{to:['g','e']},hn:[null,'g_save'],nm:'最後：回鋼都',to:'鋼都儲存點',t:'最後一趟：流氓蝴蝶翅膀、祭司瞬間移動，回鋼都儲存點',goal:'兩支都回鋼都儲存點（蝴蝶翅膀或瞬間移動）。',act:'流氓用蝴蝶翅膀、祭司用瞬間移動 2 級，回鋼都旅館的儲存點。',go:'einbroch 的鋼都旅館（儲存點）',fin:'arrive',btn:'兩支都回到鋼都了',walk:'0 格（翅膀、瞬間移動）',cells:[0,0],tm:[30,90],notes:['儲存點在鋼都旅館，兩支都回得去（玩家實測 2026-11-23）。']},
+      {id:'8-5u',holdGo:{to:['e']},hn:['g_trainst','e_trainoff'],nm:'最後：搭火車去艾音貝赫',to:'艾音貝赫',t:'最後一趟：走到火車站，搭火車到艾音貝赫',goal:'走到鋼都的火車站工作人員，兩支都搭火車到艾音貝赫。',act:'找鋼都的火車站工作人員，兩支都搭車到 einbech。',go:'einbroch 的火車站工作人員',fin:'arrive',btn:'兩支都搭火車到艾音貝赫了',cmds:[{c:'/navi einbroch 232/272'}],tm:[30,90],notes:['火車票 200 Z（玩家實測 2026-11-22）。交完艾音貝赫那幾站，收工那一步用蝴蝶翅膀或瞬間移動回儲存點；艾音貝赫搭火車回鋼都那一趟還沒有人搭過。']},
+      {id:'8-5i',holdOf:'1-7e',hr:'e',hn:['e_rita','e_rita'],nm:'最後：回麗塔回報',to:'麗塔',t:'最後一趟：到麗塔，回報三個任務',goal:'走到現場調查員麗塔，三個任務一個一個回報。',act:'找現場調查員麗塔，把三個任務一個一個回報。',go:'einbech 的現場調查員麗塔',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi einbech 152/257',l:'麗塔'}],subs:[{k:'s12',nm:'毒霧',t:'回報淨化毒性氣體（絕命毒霧、奪命毒霧）',q:'1-7b',cmds:[0],quest:true,g:['1-7d']},{k:'s13',nm:'深淵礦工魔',t:'回報被深淵蠶食的生物（深淵礦工魔、三葉鐵甲蟲）',q:'1-7b',cmds:[0],quest:true,g:['1-7d']},{k:'s14',nm:'礦石魔',t:'回報活生生的原石（四色礦石魔）',q:'1-7b',cmds:[0],quest:true,g:['1-7d']}],needs:'1-7d',tm:[60,180]},
+      {id:'8-5h',holdOf:'1-7f',hr:'e',hn:['e_ad','e_ad'],nm:'最後：回亞丁回報',to:'亞丁',t:'最後一趟：到亞丁，回報三個任務',goal:'走到警備兵亞丁，三個任務一個一個回報。',act:'找警備兵亞丁，把三個任務一個一個回報。',go:'einbech 的警備兵亞丁',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi einbech 156/200',l:'亞丁'}],subs:[{k:'s3',nm:'礦工魔',t:'回報影子礦工（礦工魔）',q:'1-7a',cmds:[0],quest:true,g:['1-7c']},{k:'s4',nm:'廢鐵暖爐',t:'回報它為什麼會動！（廢鐵暖爐）',q:'1-7a',cmds:[0],quest:true,g:['1-7c']},{k:'s5',nm:'礦石魔',t:'回報跳跳礦石魔（礦石魔、黑曜石）',q:'1-7a',cmds:[0],quest:true,g:['1-7c']}],needs:'1-7c',tm:[60,180]},
+      {id:'8-5c',holdOf:'1-8a',hr:'e',hn:['e_jerry','e_jerry'],when:{bento:'jerry'},nm:'最後：送便當給傑利',to:'傑利',t:'最後一趟：走去傑利，交便當',goal:'走去南邊工廠找傑利，把便當交給他。',act:'走去傑利（南邊工廠）那裡，把便當送給他。',go:'ein_fild09 的傑利',fin:'give',btn:'兩支都交給傑利了',cmds:[{c:'/navi ein_fild09 282/234'}],quest:true,needs:'1-7',tm:[20,60]},
+      {id:'8-5g',holdOf:'1-6',hr:'e',hn:['e_shab','e_shab'],nm:'最後：夏碧特交材料',to:'夏碧特',t:'最後一趟：到夏碧特，交材料',goal:'找夏碧特交巨大傑勒比結晶 20、煤礦 5、朱畢雷 20，兩支都要交。',act:'跟夏碧特講話，交巨大傑勒比結晶 20＋煤礦 5＋朱畢雷 20（任務 Save My Wife）。',go:'einbech 的夏碧特',fin:'give',btn:'兩支都交了',mat:true,mats:['巨大傑勒比結晶','煤礦','朱畢雷'],cmds:[{c:'/navi einbech 97/167'}],quest:true,tm:[20,60]},
+      {id:'8-5v',holdGo:{to:['g'],from:['e']},hn:['e_trainst','g_trainoff'],nm:'最後：搭火車回鋼都',to:'鋼都',t:'最後一趟：走到艾音貝赫的火車站，搭火車回鋼都',goal:'走到艾音貝赫的火車站工作人員，兩支都搭火車回鋼都。',act:'找艾音貝赫的火車站工作人員，兩支都搭車回 einbroch。',go:'einbech 的火車站工作人員',fin:'arrive',btn:'兩支都搭火車到鋼都了',cmds:[{c:'/navi einbech 39/215'}],tm:[30,90],notes:['回鋼都這一趟還沒有人搭過，票價推論跟去的時候一樣 200 Z；下車的地方是遊戲檔讀到的（鋼都 226/276）。']},
+      {id:'8-5a',holdOf:'1-4b',hr:'g',hn:['g_ai','g_ai'],nm:'最後：回阿伊健回報',to:'阿伊健',t:'最後一趟：到阿伊健，回報三個任務',goal:'走到鋼都的警備兵阿伊健，三個任務一個一個回報。',act:'找警備兵阿伊健，把三個任務一個一個回報。',go:'einbroch 的警備兵阿伊健',fin:'reward',btn:'剩下的都領到獎勵了',cmds:[{c:'/navi einbroch 220/254',l:'阿伊健'}],subs:[{k:'g1',nm:'毒液魔',t:'回報漂浮的有毒瓦斯1（毒液魔）',q:'1-1a',cmds:[0],quest:true,g:['1-4a']},{k:'g2',nm:'廢氣魔',t:'回報漂浮的有毒瓦斯2（廢氣魔）',q:'1-1a',cmds:[0],quest:true,g:['1-4a']},{k:'bear',nm:'玩偶熊',t:'回報可愛又可怕的...（玩偶熊）',q:'1-1a',cmds:[0],quest:true,g:['1-4a']}],needs:'1-4a',tm:[60,180]},
+      {id:'8-5b',holdOf:'1-4',hr:'g',hn:['g_seku','g_seku'],nm:'最後：回瑟庫領獎',to:'瑟庫女士',t:'最後一趟：走到瑟庫女士，回報找小狗',goal:'走到瑟庫女士，回報找小狗，兩支都要回報。',act:'找瑟庫女士回報（任務原文：帶去給瑟庫女士）。',go:'ein_fild04 的瑟庫女士',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi ein_fild04 180/35'}],quest:true,needs:'1-3',tm:[20,60],notes:['小狗是跟著你走，還是只要人走過去就好：不知道；回報時看一下任務視窗。']},
+      {id:'8-5d',holdOf:'1-8d',hr:'g',hn:['g_pete','g_pete'],when:{bento:'pete',bentoGo:'go'},nm:'最後：送便當給皮蒂',to:'皮蒂',t:'最後一趟：走到皮蒂，交便當',goal:'走到皮蒂，把便當交給他。',act:'把便當交給在北邊發電廠工作的皮蒂（任務原文）。',go:'ein_fild05 的皮蒂',fin:'give',btn:'兩支都交給皮蒂了',cmds:[{c:'/navi ein_fild05 180/217'}],quest:true,needs:'1-7',tm:[20,60]},
+      {id:'8-5j',holdOf:'3-12f',hr:'g',hn:['g_fri','g_fri'],nm:'最後：回弗里德里希回報',to:'弗里德里希',t:'最後一趟：回弗里德里希回報清理周圍',goal:'回弗里德里希，回報「麻煩清理周圍」，兩支都要回報。',act:'找弗里德里希回報「麻煩清理周圍」。',go:'ein_fild06 的弗里德里希',fin:'reward',btn:'兩支都領到獎勵了',cmds:[{c:'/navi ein_fild06 163/173',l:'弗里德里希旁'}],quest:true,needs:'3-12f',tm:[20,60]},
+      {id:'8-5e',holdOf:'1-8e',hr:'g',hn:['g_bobo','g_bobo'],when:{bento:'bobo',bentoGo:'go'},nm:'最後：送便當給波波',to:'波波',t:'最後一趟：走到波波，交便當',goal:'走到波波，把便當交給他。',act:'把便當交給在東北邊發電廠工作的丈夫波波（任務原文）。',go:'ein_fild06 的波波',fin:'give',btn:'兩支都交給波波了',cmds:[{c:'/navi ein_fild06 193/150'}],quest:true,needs:'1-7',tm:[20,60]},
+      {id:'8-5f',holdOf:'1-8f',hr:'g',hn:['g_telon','g_telon'],when:{bento:'telon',bentoGo:'go'},nm:'最後：送便當給特龍',to:'特龍',t:'最後一趟：走到特龍，交便當',goal:'走到特龍，把便當交給他。',act:'把便當交給德萊伊伯母的兒子特龍（任務原文）。',go:'ein_fild07 的特龍',fin:'give',btn:'兩支都交給特龍了',cmds:[{c:'/navi ein_fild07 220/85'}],quest:true,needs:'1-7',tm:[20,60]}
      ]}
   ],
   stuck: [
@@ -2223,7 +2272,13 @@ var DATA = {
      ['海力克：犯人的手鍊打哪隻怪掉過、大概幾隻掉一個；前置五串做到哪','手鍊從哪隻怪掉、掉率都查不到；前置五串遊戲檔數到 94 步','hrk'],
      ['籌備婚禮：沒做「結婚跑斷腿」，卡麗娜給不給每天的任務；四條支線是自己選兩條，還是她指定','「不做前置就接不到」是照巴哈推的、沒驗過；「四選二」只有巴哈寫（二手）','wed'],
      ['籌備婚禮：回報要找普羅基昂（167,112）還是卡麗娜（169,112）；酒店的門進去走不走得到釀酒專家；食材商人有沒有賣穀物、一個多少錢','遊戲檔寫向普羅基昂報告，官方公告寫卡麗娜；穀物在食材商人買是二手說法','wed'],
-     ['結婚跑斷腿：星星的粉末 3 個從哪裡拿；從毀葛怎麼去吉芬；毀葛原野 04、05、02 的諾博斯會不會追、黃諾博斯有沒有把祭司沉默','粉末的來源、去吉芬的路都查不到；會主動打人、會沉默是資料站寫的（二手）','wed']
+     ['結婚跑斷腿：星星的粉末 3 個從哪裡拿；從毀葛怎麼去吉芬；毀葛原野 04、05、02 的諾博斯會不會追、黃諾博斯有沒有把祭司沉默','粉末的來源、去吉芬的路都查不到；會主動打人、會沉默是資料站寫的（二手）','wed'],
+     ['先不交那天：湯姆的裝置檢查，最後一個開關關完之後，要不要回去找湯姆才算完成','網頁現在沒有「回湯姆」這一步（遊戲檔沒有向湯姆報告的那一筆）；要回去的話，最後一趟要多一站','hold'],
+     ['先不交那天：便當還沒交給檢查站警備兵時，站長肯不肯給「國界檢查站的工作」','不知道站長是不是要先交便當才給；不給的話，那天便當要照常交','hold'],
+     ['先不交那天：吃了經驗藥水之後交任務，經驗有沒有變多（看遊戲訊息的數字）','這一招是照玩家的做法排的，二手資料的數字也含經驗藥水；交一個看一下就知道','hold'],
+     ['先不交那天：最後一趟從吃藥水到交完最後一站，實際花了幾分鐘','網頁估的時間都是推論、沒有實測；知道了才能說一瓶夠不夠','hold'],
+     ['先不交那天：從朱諾以外的地方（例：鋼都、斐揚）能不能開門到弗雷里旁；艾音貝赫搭火車回鋼都要多少錢','開門只在毀葛開過；回鋼都那一趟火車沒有人搭過','hold'],
+     ['先不交那天：身上帶著要交的東西（鉗子、瑪哪樹枝、夏碧特的材料、便當…），兩支會不會太重','負重這頁不知道；太重的話，那幾個要照常交','hold']
   ],
   basis: [
     '座標、怪物等級與數量、地圖連通：遊戲客戶端檔案（navinpc、navimob、navilink、gat）。',
@@ -2284,7 +2339,101 @@ var DATA = {
     {t:'這頁怎麼用', x:'照最上面那張大卡做，做完按大卡上說出那個動作的按鈕，會自動換下一步。網頁不會即時追蹤位置，是照你按的按鈕記的。'},
     {t:'地圖怎麼看', x:'藍線是要走的路，紅色圖釘是目的地（有好幾個時，圓圈裡有數字），綠點是起點，不是你現在站的地方。要知道自己站哪，看遊戲右上角小地圖下面的兩個數字。'},
     {t:'指令怎麼貼', x:'按「複製」，回遊戲在聊天列貼上再按 Enter，畫面會出現帶路箭頭。能不能直接帶到屋內還沒實測。用手機看這頁時，複製的指令貼不到電腦的遊戲裡，請照著指令手打。'}
-  ]
+  ],
+  hold: {
+    seg:'z',
+    hEnd:['3-11'],
+    steps:{
+      '4-2d':{ty:'r'},
+      '4-3c':{ty:'r'},
+      '3-12':{ty:'r'},
+      '3-3':{ty:'r'},
+      '3-6':{ty:'b'},
+      '3-7':{ty:'f',npc:'站長',nm:'打螳螂向日葵（先不回報）',go:'yuno_fild01 這張圖（打夠就好，先不回站長那裡）',t:'打螳螂向日葵（先不回報）',goal:'在這張圖打螳螂與邪惡向日葵，打夠就好，先不回站長那裡回報。',btn:'兩支都打夠了'},
+      '3-9':{ty:'f',npc:'爾弗雷多',nm:'打沙妖（先不回報）',t:'打沙妖（先不回報）',goal:'打沙妖 30 隻就好，先不找爾弗雷多回報。',btn:'兩支都打夠了'},
+      '3-9b':{ty:'f',npc:'土黎',nm:'加做：抓書（先不回報）',go:'yuno_fild06 這張圖（抓夠就好，先不回土黎旁）',t:'加做：抓書（先不回報）',goal:'在這張圖用魔杖抓落跑吧魔書，抓到 5 本左右就好，先不回土黎回報。',btn:'兩支都抓夠了'},
+      '3-9d':{ty:'f',npc:'學院警備兵',nm:'加做：去別墅那張圖打鳥人哈比（先不回報）',go:'yuno_fild02（別墅那張圖；打夠就好，先不回學院警備兵）',t:'加做：去別墅那張圖打鳥人哈比（先不回報）',goal:'從學院走到朱諾原野 02（別墅那張圖）打鳥人哈比，打夠就好，先不回學院回報。',btn:'兩支都打夠了'},
+      '3-9e':{ty:'f',npc:'學院學生',nm:'加做：完美的結尾（接、打，先不回報）',t:'加做：完美的結尾（接、打，先不回報）',goal:'走到學院學生，接「完美的結尾」，打夠就好，先不回報。',btn:'兩支都接了、打夠了'},
+      '3-9f':{ty:'f',npc:'貓咪手商人',nm:'加做：收毛皮、羽毛（先不找貓咪手商人）',go:'yuno_fild08（學院這一帶打魔羌、七彩大嘴鳥；先不去貓咪手商人）',t:'加做：打材料（先不找貓咪手商人接）',goal:'打魔羌、七彩大嘴鳥，收魔羌之毛皮 10、七彩大嘴鳥之羽 10，先不找貓咪手商人接任務。',btn:'兩支都收好材料了',act:'收魔羌之毛皮 10、七彩大嘴鳥之羽 10（任務原文要的材料），收好就按下面的按鈕；貓咪手商人的任務留到最後一趟再接、再交。',fin:'兩種材料都收好就算；接任務、交材料留到最後一趟。',note:'今天先不交：這一步只收材料，最後一趟才找貓咪手商人接「突破性的業務項目」、當場交。接任務之前撿到的毛皮、羽毛交不交得出去，還不知道（每日回報有一題在問）。想保險的話，收材料之前先在流程表這一行按〔這一個今天照常交〕，照平常先接再收。'},
+      '3-10d':{ty:'r'},
+      '3-13b':{ty:'f',npc:'安傑洛',nm:'加做：打魔羌、收魔羌之角（先不交）',go:'yuno_fild11（朱諾原野 11；收夠就好，先不交給安傑洛）',t:'加做：打魔羌、收魔羌之角（先不交）',goal:'在朱諾原野 11 打魔羌、收魔羌之角（隻數與個數看任務視窗），先不交給安傑洛。',btn:'兩支都打夠、收好了'},
+      '3-12f':{ty:'f',npc:'弗里德里希',nm:'加做：打摩爾與金屬波利（先不回報）',go:'ein_fild06 這張圖（打夠就好，先不回弗里德里希旁）',t:'加做：打摩爾與金屬波利（先不回報）',goal:'在這張圖打摩爾與金屬波利，打夠就好，先不回弗里德里希回報。',btn:'兩支都打夠了'},
+      '3-4':{ty:'n',row:'3-6',note:'今天先不交：便當留到最後一趟才交給警備兵。如果站長不給接，可能是要先交便當（還沒確認）：那就按這張卡上面「便當交警備兵」那一行的〔這一個今天照常交〕，先把便當交了，再回來接。'},
+      '2-11':{ty:'r'},
+      '2-3':{ty:'g'},
+      '2-10e':{ty:'r'},
+      '2-10d':{ty:'r'},
+      '2-15':{ty:'r'},
+      '2-15a':{ty:'r'},
+      '2-20e':{ty:'r'},
+      '2-11d':{ty:'r'},
+      '2-11e':{ty:'d',u:'2-11e'},
+      '2-11f':{ty:'d',u:'2-11e'},
+      '2-19c':{ty:'g'},
+      '2-19d':{ty:'r'},
+      '2-19e':{ty:'r'},
+      '2-19f':{ty:'r'},
+      '1-4b':{ty:'r'},
+      '1-4':{ty:'r'},
+      '1-8a':{ty:'b',u:'bento'},
+      '1-8c':{ty:'x',u:'bento'},
+      '1-8d':{ty:'b',u:'bento'},
+      '1-8e':{ty:'b',u:'bento'},
+      '1-8f':{ty:'b',u:'bento'},
+      '1-6':{ty:'g'},
+      '1-7f':{ty:'r'},
+      '1-7e':{ty:'r'}
+    },
+    dist:{
+      'y_frey>y_frey':0,'y_frey>y_alf':1146,'y_frey>y_nest':1525,'y_frey>y_guard':345,'y_frey>y_chief':344,'y_frey>y_tuli':1563,'y_frey>y_acg':730,'y_frey>y_stu':750,'y_frey>y_cat':756,'y_frey>y_mus':1509,'y_frey>y_emi':1449,'y_frey>y_ang':848,
+      'y_alf>y_frey':1149,'y_alf>y_alf':0,'y_alf>y_nest':1143,'y_alf>y_guard':1272,'y_alf>y_chief':1271,'y_alf>y_tuli':432,'y_alf>y_acg':559,'y_alf>y_stu':581,'y_alf>y_cat':587,'y_alf>y_mus':747,'y_alf>y_emi':940,'y_alf>y_ang':1055,
+      'y_nest>y_frey':1518,'y_nest>y_alf':1151,'y_nest>y_nest':0,'y_nest>y_guard':1600,'y_nest>y_chief':1599,'y_nest>y_tuli':758,'y_nest>y_acg':991,'y_nest>y_stu':1013,'y_nest>y_cat':1019,'y_nest>y_mus':864,'y_nest>y_emi':324,'y_nest>y_ang':930,
+      'y_guard>y_frey':343,'y_guard>y_alf':1274,'y_guard>y_nest':1605,'y_guard>y_guard':0,'y_guard>y_chief':9,'y_guard>y_tuli':1691,'y_guard>y_acg':802,'y_guard>y_stu':822,'y_guard>y_cat':828,'y_guard>y_mus':1589,'y_guard>y_emi':1529,'y_guard>y_ang':928,
+      'y_chief>y_frey':342,'y_chief>y_alf':1273,'y_chief>y_nest':1604,'y_chief>y_guard':9,'y_chief>y_chief':0,'y_chief>y_tuli':1690,'y_chief>y_acg':801,'y_chief>y_stu':821,'y_chief>y_cat':827,'y_chief>y_mus':1588,'y_chief>y_emi':1528,'y_chief>y_ang':927,
+      'y_tuli>y_frey':1569,'y_tuli>y_alf':435,'y_tuli>y_nest':753,'y_tuli>y_guard':1692,'y_tuli>y_chief':1691,'y_tuli>y_tuli':0,'y_tuli>y_acg':979,'y_tuli>y_stu':1001,'y_tuli>y_cat':1007,'y_tuli>y_mus':503,'y_tuli>y_emi':550,'y_tuli>y_ang':1151,
+      'y_acg>y_frey':732,'y_acg>y_alf':560,'y_acg>y_nest':990,'y_acg>y_guard':801,'y_acg>y_chief':800,'y_acg>y_tuli':977,'y_acg>y_acg':0,'y_acg>y_stu':22,'y_acg>y_cat':28,'y_acg>y_mus':875,'y_acg>y_emi':815,'y_acg>y_ang':683,
+      'y_stu>y_frey':752,'y_stu>y_alf':582,'y_stu>y_nest':1012,'y_stu>y_guard':821,'y_stu>y_chief':820,'y_stu>y_tuli':999,'y_stu>y_acg':22,'y_stu>y_stu':0,'y_stu>y_cat':7,'y_stu>y_mus':897,'y_stu>y_emi':837,'y_stu>y_ang':703,
+      'y_cat>y_frey':758,'y_cat>y_alf':588,'y_cat>y_nest':1018,'y_cat>y_guard':827,'y_cat>y_chief':826,'y_cat>y_tuli':1005,'y_cat>y_acg':28,'y_cat>y_stu':7,'y_cat>y_cat':0,'y_cat>y_mus':903,'y_cat>y_emi':843,'y_cat>y_ang':709,
+      'y_mus>y_frey':1507,'y_mus>y_alf':747,'y_mus>y_nest':865,'y_mus>y_guard':1589,'y_mus>y_chief':1588,'y_mus>y_tuli':506,'y_mus>y_acg':876,'y_mus>y_stu':898,'y_mus>y_cat':904,'y_mus>y_mus':0,'y_mus>y_emi':662,'y_mus>y_ang':996,
+      'y_emi>y_frey':1447,'y_emi>y_alf':948,'y_emi>y_nest':324,'y_emi>y_guard':1529,'y_emi>y_chief':1528,'y_emi>y_tuli':555,'y_emi>y_acg':816,'y_emi>y_stu':838,'y_emi>y_cat':844,'y_emi>y_mus':661,'y_emi>y_emi':0,'y_emi>y_ang':891,
+      'y_ang>y_frey':845,'y_ang>y_alf':1055,'y_ang>y_nest':931,'y_ang>y_guard':927,'y_ang>y_chief':926,'y_ang>y_tuli':1156,'y_ang>y_acg':683,'y_ang>y_stu':703,'y_ang>y_cat':709,'y_ang>y_mus':994,'y_ang>y_emi':892,'y_ang>y_ang':0,
+      'h_badge>h_badge':0,'h_badge>h_sid':59,'h_badge>h_jet':65,'h_badge>h_sil':106,'h_badge>h_mei':81,'h_badge>h_amb':143,'h_badge>h_rhd':40,'h_badge>h_mol':115,'h_badge>h_odp':120,'h_badge>h_pro':90,'h_badge>h_dock':120,
+      'h_sid>h_badge':59,'h_sid>h_sid':0,'h_sid>h_jet':124,'h_sid>h_sil':165,'h_sid>h_mei':114,'h_sid>h_amb':103,'h_sid>h_rhd':26,'h_sid>h_mol':116,'h_sid>h_odp':117,'h_sid>h_pro':87,'h_sid>h_dock':139,
+      'h_jet>h_badge':66,'h_jet>h_sid':125,'h_jet>h_jet':0,'h_jet>h_sil':154,'h_jet>h_mei':138,'h_jet>h_amb':209,'h_jet>h_rhd':105,'h_jet>h_mol':172,'h_jet>h_odp':179,'h_jet>h_pro':148,'h_jet>h_dock':177,
+      'h_sil>h_badge':103,'h_sil>h_sid':162,'h_sil>h_jet':146,'h_sil>h_sil':0,'h_sil>h_mei':144,'h_sil>h_amb':246,'h_sil>h_rhd':143,'h_sil>h_mol':178,'h_sil>h_odp':185,'h_sil>h_pro':154,'h_sil>h_dock':183,
+      'h_mei>h_badge':82,'h_mei>h_sid':114,'h_mei>h_jet':134,'h_mei>h_sil':148,'h_mei>h_mei':0,'h_mei>h_amb':167,'h_mei>h_rhd':110,'h_mei>h_mol':83,'h_mei>h_odp':90,'h_mei>h_pro':59,'h_mei>h_dock':82,
+      'h_amb>h_badge':146,'h_amb>h_sid':101,'h_amb>h_jet':211,'h_amb>h_sil':252,'h_amb>h_mei':170,'h_amb>h_amb':0,'h_amb>h_rhd':126,'h_amb>h_mol':140,'h_amb>h_odp':146,'h_amb>h_pro':115,'h_amb>h_dock':195,
+      'h_rhd>h_badge':40,'h_rhd>h_sid':26,'h_rhd>h_jet':101,'h_rhd>h_sil':146,'h_rhd>h_mei':109,'h_rhd>h_amb':128,'h_rhd>h_rhd':0,'h_rhd>h_mol':131,'h_rhd>h_odp':132,'h_rhd>h_pro':102,'h_rhd>h_dock':148,
+      'h_mol>h_badge':115,'h_mol>h_sid':116,'h_mol>h_jet':167,'h_mol>h_sil':181,'h_mol>h_mei':83,'h_mol>h_amb':137,'h_mol>h_rhd':131,'h_mol>h_mol':0,'h_mol>h_odp':76,'h_mol>h_pro':31,'h_mol>h_dock':108,
+      'h_odp>h_badge':121,'h_odp>h_sid':118,'h_odp>h_jet':175,'h_odp>h_sil':189,'h_odp>h_mei':91,'h_odp>h_amb':144,'h_odp>h_rhd':133,'h_odp>h_mol':73,'h_odp>h_odp':0,'h_odp>h_pro':42,'h_odp>h_dock':116,
+      'h_pro>h_badge':90,'h_pro>h_sid':87,'h_pro>h_jet':143,'h_pro>h_sil':157,'h_pro>h_mei':59,'h_pro>h_amb':112,'h_pro>h_rhd':102,'h_pro>h_mol':31,'h_pro>h_odp':45,'h_pro>h_pro':0,'h_pro>h_dock':84,
+      'h_dock>h_badge':120,'h_dock>h_sid':139,'h_dock>h_jet':172,'h_dock>h_sil':186,'h_dock>h_mei':80,'h_dock>h_amb':192,'h_dock>h_rhd':148,'h_dock>h_mol':108,'h_dock>h_odp':115,'h_dock>h_pro':84,'h_dock>h_dock':0,
+      'l_exit>l_exit':0,'l_exit>l_ray':248,'l_exit>l_teo':248,'l_exit>l_boss':667,'l_exit>l_hrk':41,'l_exit>l_fire':189,'l_exit>l_tal':198,
+      'l_ray>l_exit':248,'l_ray>l_ray':0,'l_ray>l_teo':11,'l_ray>l_boss':419,'l_ray>l_hrk':216,'l_ray>l_fire':185,'l_ray>l_tal':194,
+      'l_teo>l_exit':248,'l_teo>l_ray':11,'l_teo>l_teo':0,'l_teo>l_boss':430,'l_teo>l_hrk':216,'l_teo>l_fire':185,'l_teo>l_tal':194,
+      'l_boss>l_exit':672,'l_boss>l_ray':424,'l_boss>l_teo':435,'l_boss>l_boss':0,'l_boss>l_hrk':640,'l_boss>l_fire':609,'l_boss>l_tal':618,
+      'l_hrk>l_exit':41,'l_hrk>l_ray':216,'l_hrk>l_teo':216,'l_hrk>l_boss':635,'l_hrk>l_hrk':0,'l_hrk>l_fire':157,'l_hrk>l_tal':166,
+      'l_fire>l_exit':191,'l_fire>l_ray':187,'l_fire>l_teo':187,'l_fire>l_boss':606,'l_fire>l_hrk':159,'l_fire>l_fire':0,'l_fire>l_tal':69,
+      'l_tal>l_exit':200,'l_tal>l_ray':196,'l_tal>l_teo':196,'l_tal>l_boss':615,'l_tal>l_hrk':168,'l_tal>l_fire':69,'l_tal>l_tal':0,
+      'g_save>g_save':0,'g_save>g_trainst':68,'g_save>g_trainoff':70,'g_save>e_trainoff':68,'g_save>e_trainst':72,'g_save>g_seku':181,'g_save>e_jerry':522,'g_save>g_pete':663,'g_save>g_bobo':1037,'g_save>g_telon':1434,'g_save>g_ai':48,'g_save>g_fri':1007,'g_save>e_shab':162,'g_save>e_rita':219,'g_save>e_ad':181,
+      'g_trainst>g_save':68,'g_trainst>g_trainst':0,'g_trainst>g_trainoff':6,'g_trainst>e_trainoff':0,'g_trainst>e_trainst':4,'g_trainst>g_seku':159,'g_trainst>e_jerry':454,'g_trainst>g_pete':641,'g_trainst>g_bobo':1015,'g_trainst>g_telon':1412,'g_trainst>g_ai':22,'g_trainst>g_fri':985,'g_trainst>e_shab':94,'g_trainst>e_rita':151,'g_trainst>e_ad':113,
+      'g_trainoff>g_save':70,'g_trainoff>g_trainst':6,'g_trainoff>g_trainoff':0,'g_trainoff>e_trainoff':6,'g_trainoff>e_trainst':10,'g_trainoff>g_seku':160,'g_trainoff>e_jerry':460,'g_trainoff>g_pete':642,'g_trainoff>g_bobo':1016,'g_trainoff>g_telon':1413,'g_trainoff>g_ai':23,'g_trainoff>g_fri':986,'g_trainoff>e_shab':100,'g_trainoff>e_rita':157,'g_trainoff>e_ad':119,
+      'e_trainoff>g_save':74,'e_trainoff>g_trainst':10,'e_trainoff>g_trainoff':4,'e_trainoff>e_trainoff':0,'e_trainoff>e_trainst':4,'e_trainoff>g_seku':164,'e_trainoff>e_jerry':454,'e_trainoff>g_pete':646,'e_trainoff>g_bobo':1020,'e_trainoff>g_telon':1417,'e_trainoff>g_ai':27,'e_trainoff>g_fri':990,'e_trainoff>e_shab':94,'e_trainoff>e_rita':151,'e_trainoff>e_ad':113,
+      'e_trainst>g_save':70,'e_trainst>g_trainst':6,'e_trainst>g_trainoff':0,'e_trainst>e_trainoff':4,'e_trainst>e_trainst':0,'e_trainst>g_seku':160,'e_trainst>e_jerry':458,'e_trainst>g_pete':642,'e_trainst>g_bobo':1016,'e_trainst>g_telon':1413,'e_trainst>g_ai':23,'e_trainst>g_fri':986,'e_trainst>e_shab':98,'e_trainst>e_rita':155,'e_trainst>e_ad':117,
+      'g_seku>g_save':182,'g_seku>g_trainst':160,'g_seku>g_trainoff':161,'g_seku>e_trainoff':160,'g_seku>e_trainst':164,'g_seku>g_seku':0,'g_seku>e_jerry':614,'g_seku>g_pete':482,'g_seku>g_bobo':856,'g_seku>g_telon':1253,'g_seku>g_ai':138,'g_seku>g_fri':826,'g_seku>e_shab':254,'g_seku>e_rita':311,'g_seku>e_ad':273,
+      'e_jerry>g_save':528,'e_jerry>g_trainst':464,'e_jerry>g_trainoff':458,'e_jerry>e_trainoff':454,'e_jerry>e_trainst':458,'e_jerry>g_seku':618,'e_jerry>e_jerry':0,'e_jerry>g_pete':1100,'e_jerry>g_bobo':1474,'e_jerry>g_telon':1871,'e_jerry>g_ai':481,'e_jerry>g_fri':1444,'e_jerry>e_shab':360,'e_jerry>e_rita':474,'e_jerry>e_ad':393,
+      'g_pete>g_save':664,'g_pete>g_trainst':642,'g_pete>g_trainoff':643,'g_pete>e_trainoff':642,'g_pete>e_trainst':646,'g_pete>g_seku':482,'g_pete>e_jerry':1096,'g_pete>g_pete':0,'g_pete>g_bobo':376,'g_pete>g_telon':773,'g_pete>g_ai':620,'g_pete>g_fri':346,'g_pete>e_shab':736,'g_pete>e_rita':793,'g_pete>e_ad':755,
+      'g_bobo>g_save':1038,'g_bobo>g_trainst':1016,'g_bobo>g_trainoff':1017,'g_bobo>e_trainoff':1016,'g_bobo>e_trainst':1020,'g_bobo>g_seku':856,'g_bobo>e_jerry':1470,'g_bobo>g_pete':376,'g_bobo>g_bobo':0,'g_bobo>g_telon':409,'g_bobo>g_ai':994,'g_bobo>g_fri':40,'g_bobo>e_shab':1110,'g_bobo>e_rita':1167,'g_bobo>e_ad':1129,
+      'g_telon>g_save':1438,'g_telon>g_trainst':1416,'g_telon>g_trainoff':1417,'g_telon>e_trainoff':1416,'g_telon>e_trainst':1420,'g_telon>g_seku':1256,'g_telon>e_jerry':1870,'g_telon>g_pete':776,'g_telon>g_bobo':412,'g_telon>g_telon':0,'g_telon>g_ai':1394,'g_telon>g_fri':440,'g_telon>e_shab':1510,'g_telon>e_rita':1567,'g_telon>e_ad':1529,
+      'g_ai>g_save':48,'g_ai>g_trainst':22,'g_ai>g_trainoff':23,'g_ai>e_trainoff':22,'g_ai>e_trainst':26,'g_ai>g_seku':137,'g_ai>e_jerry':476,'g_ai>g_pete':619,'g_ai>g_bobo':993,'g_ai>g_telon':1390,'g_ai>g_ai':0,'g_ai>g_fri':963,'g_ai>e_shab':116,'g_ai>e_rita':173,'g_ai>e_ad':135,
+      'g_fri>g_save':1008,'g_fri>g_trainst':986,'g_fri>g_trainoff':987,'g_fri>e_trainoff':986,'g_fri>e_trainst':990,'g_fri>g_seku':826,'g_fri>e_jerry':1440,'g_fri>g_pete':346,'g_fri>g_bobo':40,'g_fri>g_telon':437,'g_fri>g_ai':964,'g_fri>g_fri':0,'g_fri>e_shab':1080,'g_fri>e_rita':1137,'g_fri>e_ad':1099,
+      'e_shab>g_save':168,'e_shab>g_trainst':104,'e_shab>g_trainoff':98,'e_shab>e_trainoff':94,'e_shab>e_trainst':98,'e_shab>g_seku':258,'e_shab>e_jerry':360,'e_shab>g_pete':740,'e_shab>g_bobo':1114,'e_shab>g_telon':1511,'e_shab>g_ai':121,'e_shab>g_fri':1084,'e_shab>e_shab':0,'e_shab>e_rita':114,'e_shab>e_ad':59,
+      'e_rita>g_save':225,'e_rita>g_trainst':161,'e_rita>g_trainoff':155,'e_rita>e_trainoff':151,'e_rita>e_trainst':155,'e_rita>g_seku':315,'e_rita>e_jerry':474,'e_rita>g_pete':797,'e_rita>g_bobo':1171,'e_rita>g_telon':1568,'e_rita>g_ai':178,'e_rita>g_fri':1141,'e_rita>e_shab':114,'e_rita>e_rita':0,'e_rita>e_ad':84,
+      'e_ad>g_save':187,'e_ad>g_trainst':123,'e_ad>g_trainoff':117,'e_ad>e_trainoff':113,'e_ad>e_trainst':117,'e_ad>g_seku':277,'e_ad>e_jerry':393,'e_ad>g_pete':759,'e_ad>g_bobo':1133,'e_ad>g_telon':1530,'e_ad>g_ai':140,'e_ad>g_fri':1103,'e_ad>e_shab':59,'e_ad>e_rita':84,'e_ad>e_ad':0,
+      'p_jin>p_imk':325,'p_jin>p_jin':0,
+      'p_imk>p_jin':331,'p_imk>p_imk':0
+    }
+  }
 };
 
 // ==MAPDATA-START==
@@ -2415,7 +2564,126 @@ function onceGone(s){if(!s||!s.once)return false;return onceBeforeW(s.id,'r')&&o
 function optVal(k){var o,i,hv;if(optKey(k)&&DATA.opts[k].any){for(i=0;i<DATA.opts[k].any.length;i++){if(optVal(DATA.opts[k].any[i])!=='off')return 'on';}return 'off';}   // 改：批 18-A，虛擬開關（any 裡任一個打開就算打開）
   if(huntKey(k)){hv=huntRawVal(k);return (hv!=='off'&&huntAllGated(k,hv))?'off':hv;}   // 批 21-A：打怪組今天有沒有排、這個模式要做的步驟是不是全部收起來
   if(!optOn(k))return 'off';o=DATA.opts[k];return (o&&o.pre&&o.pre.steps&&!onceAllBefore(o.pre.steps))?'pre':'on';}
-function stepShown(it,ch){return whenOk(it.when,ch)&&!onceGone(it)&&!huntGated(it);}   // 改：批 21-A，打怪組收起來的步驟不顯示
+// 批 25-B：先不交模式（玩家要吃經驗藥水：每個任務只做到「可以交了」，全部做完再一站一站去交）。
+// DATA.hold＝哪些原步驟怎麼處理（steps：鍵＝步驟 id；ty r／g／b／d／x 先不交那天藏起來、f 換字、n 多一句）；段落 z＝最後一趟（分身 holdOf、移動 holdGo、吃藥水 holdPot）。
+// 今天不是先不交（沒有 DATA.hold、或 holdOn() 為假）：分身、移動步驟、吃藥水一律不出現，原步驟照舊；LOGIC 區單獨跑時沒有 K、P、ui，一律當沒有這回事。
+// 沒用過先不交的人（K.hold、P.hold 都不是 true）：holdOn() 在最前面就回 false，零成本（審查 C5）
+function holdD(){return (typeof DATA!=='undefined'&&DATA&&DATA.hold&&typeof DATA.hold==='object')?DATA.hold:null;}
+// 日況；一次 fullRender 內只算一次（ui.holdEndOn 為真時快取在 ui.holdDsC；null 也是有效的值，用 undefined 當「還沒算」）
+function holdDs(){
+  var c=(typeof ui!=='undefined'&&!!ui&&ui.holdEndOn===true),v;
+  if(c&&ui.holdDsC!==undefined)return ui.holdDsC;
+  v=(typeof dayState==='function'&&typeof P!=='undefined'&&P&&typeof ui!=='undefined'&&ui)?dayState():null;
+  if(c)ui.holdDsC=v;
+  return v;
+}
+// 日況：start＝照目前的勾選（K.hold）；ok／ask／old＝只看今天（或舊的一天）凍結的 P.hold；拿不到日況（LOGIC 區單獨跑）看 P.hold
+function holdOn(){
+  var hk=(typeof K!=='undefined'&&!!K&&K.hold===true),hp=(typeof P!=='undefined'&&!!P&&P.hold===true);
+  if(!hk&&!hp)return false;
+  if(!holdD())return false;
+  return holdDs()==='start'?hk:hp;
+}
+function holdE(id){var d=holdD();return (d&&d.steps&&Object.prototype.hasOwnProperty.call(d.steps,id))?d.steps[id]:null;}
+function holdU(id){var e=holdE(id);return e?(e.u||id):null;}
+// 這個單位今天有沒有照先不交（沒按〔這一個今天照常交〕）
+function holdAct(u){return holdOn()&&(holdDs()==='start'||!(typeof P!=='undefined'&&P&&P.holdNo&&P.holdNo[u]===true));}
+function holdFind(id){var i,j,l;if(typeof DATA==='undefined'||!DATA||!DATA.segments)return null;for(i=0;i<DATA.segments.length;i++){l=DATA.segments[i].items;for(j=0;j<l.length;j++){if(!l[j].kind&&l[j].id===id)return l[j];}}return null;}
+// 原步驟「本來會出現」（不看先不交；不能呼叫 stepShown，會被自己藏掉）
+function holdBase(o,ch){return !!o&&whenOk(o.when,ch)&&!onceGone(o)&&!huntGated(o);}
+function holdHid(id){var e=holdE(id);return !!e&&(e.ty==='r'||e.ty==='g'||e.ty==='b'||e.ty==='d'||e.ty==='x')&&holdAct(e.u||id);}
+function holdF(s){var e=s?holdE(s.id):null;return (e&&e.ty==='f'&&holdAct(e.u||s.id))?e:null;}
+function holdN(s){var e=s?holdE(s.id):null;return (e&&e.ty==='n'&&holdOn())?e:null;}
+// 今天不存在的最後一趟步驟：沒勾那天全部；勾了那天，玩家按了〔這一個今天照常交〕的那個單位的分身（原步驟回來了，分身不該再被「跳過連鎖」寫紀錄）
+function holdAbsent(it){
+  if(!it||!(it.holdOf||it.holdGo||it.holdPot))return false;
+  if(!holdOn())return true;
+  return !!it.holdOf&&!holdAct(holdU(it.holdOf)||it.holdOf);
+}
+function holdSkipScan(it){return holdAbsent(it)||holdHid(it.id);}
+function stepQuest(s){return !!s.quest&&!holdF(s);}
+// 艾蜜莉：同一個原步驟有兩個分身（排朱諾第一站／最後一站）
+function holdAlt(id){return id==='8-2a'?'8-2l':(id==='8-2l'?'8-2a':null);}
+// 白天最後一步：z 之前的段，今天看得到、而且不是「兩支都今天不做」的最後一步的 id（沒有就 null）；一次 fullRender 內同一份選擇只算一次
+// 一份抽籤選擇（ch）的簽名：同樣的選擇＝同樣的字串（不看 _done，那是今天的紀錄，一次 fullRender 內不會變）
+function holdSig(ch){
+  var s='',k,q;
+  for(k in ch){
+    if(k==='_done'||!Object.prototype.hasOwnProperty.call(ch,k))continue;
+    if(k==='_p'){for(q in ch._p){if(Object.prototype.hasOwnProperty.call(ch._p,q))s+='p.'+q+'='+ch._p[q]+';';}}
+    else s+=k+'='+ch[k]+';';
+  }
+  return s;
+}
+function holdEnd(ch){
+  var d=holdD(),i,l,j,last=null,sg,sig,c;
+  if(!d||typeof DATA==='undefined'||!DATA||!DATA.segments)return null;
+  c=(typeof ui!=='undefined'&&!!ui&&ui.holdEndOn===true);
+  if(c){sig=holdSig(ch);if(ui.holdEndC&&Object.prototype.hasOwnProperty.call(ui.holdEndC,sig))return ui.holdEndC[sig];}
+  for(i=0;i<DATA.segments.length;i++){
+    sg=DATA.segments[i];
+    if(sg.id===d.seg)break;
+    l=stepList(sg.items,ch);
+    for(j=0;j<l.length;j++){if(!(typeof P!=='undefined'&&P&&P.done&&isSkipRec(P.done[l[j].id])))last=l[j].id;}
+  }
+  if(c){if(!ui.holdEndC)ui.holdEndC={};ui.holdEndC[sig]=last;}
+  return last;
+}
+// z 段裡，區（hr）在 regions 裡、而且今天看得到的分身有沒有（regions 不給＝任何區）
+function holdVis(regions,ch){
+  var d=holdD(),i,j,sg,it,key=regions?regions.join(','):'*',c,r=false,sig;
+  if(!d||typeof DATA==='undefined'||!DATA||!DATA.segments)return false;
+  c=(typeof ui!=='undefined'&&!!ui&&ui.holdEndOn===true);   // 一次 fullRender 內，同一份選擇、同一組區只算一次
+  if(c){sig=holdSig(ch)+'|'+key;if(ui.holdVisC&&ui.holdVisC[sig]!==undefined)return ui.holdVisC[sig];}
+  for(i=0;i<DATA.segments.length&&!r;i++){
+    sg=DATA.segments[i];
+    if(sg.id!==d.seg)continue;
+    for(j=0;j<sg.items.length;j++){it=sg.items[j];if(it.holdOf&&(!regions||regions.indexOf(it.hr)>=0)&&stepShown(it,ch)){r=true;break;}}
+  }
+  if(c){if(!ui.holdVisC)ui.holdVisC={};ui.holdVisC[sig]=r;}
+  return r;
+}
+// 關掉開關時，holdOf 在 ids 裡的分身也要一起清紀錄
+function holdTwins(ids){
+  var out=[],i,j,sg,it,d=holdD();
+  if(!d||typeof DATA==='undefined'||!DATA||!DATA.segments)return out;
+  for(i=0;i<DATA.segments.length;i++){
+    sg=DATA.segments[i];
+    if(sg.id!==d.seg)continue;
+    for(j=0;j<sg.items.length;j++){it=sg.items[j];if(it.holdOf&&ids.indexOf(it.holdOf)>=0&&ids.indexOf(it.id)<0)out.push(it.id);}
+  }
+  return out;
+}
+// 出不出現（接在 stepShown 最後）：沒有 DATA.hold、今天不是先不交 → 分身、移動、吃藥水都不出現，原步驟照舊
+function holdOk(it,ch){
+  var d,e,u,o,al,pd,inH;
+  if(!it.holdOf&&!it.holdGo&&!it.holdPot&&!((typeof K!=='undefined'&&!!K&&K.hold===true)||(typeof P!=='undefined'&&!!P&&P.hold===true)))return true;   // 沒用過先不交的人、普通步驟：最快的路（stepShown 是全頁最常被呼叫的函式）
+  d=holdD();
+  if(!d)return true;
+  if(it.holdOf){
+    if(!holdOn())return false;
+    u=holdU(it.holdOf)||it.holdOf;
+    if(!holdAct(u)||!holdBase(holdFind(it.holdOf),ch))return false;
+    al=holdAlt(it.id);
+    if(al){
+      pd=(typeof P!=='undefined'&&P&&P.done)?P.done:{};
+      if(isRealDone(pd[it.id]))return true;
+      if(isRealDone(pd[al]))return false;
+      inH=!!(d.hEnd&&d.hEnd.indexOf(holdEnd(ch))>=0);
+      return it.id==='8-2a'?inH:!inH;
+    }
+    return true;
+  }
+  if(it.holdGo){
+    if(!holdOn()||!holdVis(it.holdGo.to,ch))return false;
+    return !it.holdGo.from||holdVis(it.holdGo.from,ch);
+  }
+  if(it.holdPot)return holdOn()&&holdVis(null,ch);
+  e=holdE(it.id);
+  if(e&&(e.ty==='r'||e.ty==='g'||e.ty==='b'||e.ty==='d'||e.ty==='x')&&holdAct(e.u||it.id))return false;
+  return true;
+}
+function stepShown(it,ch){return whenOk(it.when,ch)&&!onceGone(it)&&!huntGated(it)&&holdOk(it,ch);}   // 改：批 21-A，打怪組收起來的步驟不顯示；改：批 25-B，先不交模式的分身、被藏起來的原步驟
 function whenOk1(when,ch){
   if(!when)return true;
   for(var k in when){
@@ -2515,7 +2783,7 @@ function finKind(s){
   var f=s&&s.fin;
   return (f==='arrive'||f==='accept'||f==='give'||f==='reward'||f==='kill')?f:'other';
 }
-function mainLabel(s){return (s&&s.btn)||FIN_BTN[finKind(s)];}
+function mainLabel(s){var hf=holdF(s);return (hf&&hf.btn)||(s&&s.btn)||FIN_BTN[finKind(s)];}   // 改：批 25-B，先不交那天只打怪的那幾步按鈕只說到打夠
 function stepList(items,ch){
   var out=[];
   for(var i=0;i<items.length;i++){
@@ -2577,7 +2845,7 @@ function questCounts(steps,done,sub){
       }
       continue;
     }
-    if(!s.quest||!rec||isSkipRec(rec))continue;
+    if(!stepQuest(s)||!rec||isSkipRec(rec))continue;   // 改：批 25-B，先不交那天只打怪（f 類）的那幾步不算任務
     if(rec.r===1)r++;
     if(rec.p===1)p++;
   }
@@ -2590,7 +2858,7 @@ function questText(c){return '流氓 '+c.r+' 個、祭司 '+c.p+' 個';}
 function stepsNeeding(up){
   var out=[],i,j,it;
   for(i=0;i<DATA.segments.length;i++){
-    for(j=0;j<DATA.segments[i].items.length;j++){it=DATA.segments[i].items[j];if(!it.kind&&it.needs===up)out.push(it);}
+    for(j=0;j<DATA.segments[i].items.length;j++){it=DATA.segments[i].items[j];if(!it.kind&&it.needs===up&&!holdSkipScan(it))out.push(it);}
   }
   return out;
 }
@@ -3305,12 +3573,13 @@ function removeHist(hist,id,secs){
 function minValidSecs(estMin){return Math.max(10,Math.floor(estMin/4));}
 function validActual(secs,estMin){return typeof secs==='number'&&secs>=minValidSecs(estMin)&&secs<=REST_CUTOFF_SEC;}
 // 一個步驟的時間 [最少秒,最多秒]；同一步有 ≥3 筆紀錄時改用你的最短～最長（hist 傳 null 就是純估計）
-function stepTimeWith(s,legs,hist){
+function stepTimeWith(s,legs,hist,ord){
   var hr=histRange(hist,s.id);
   // 批 13-4：這一步現在顯示的是走路版（有 memo、記點不是「做過了」，而且有走路備用路線，例 3-8）時，格數照走路路線算；開門日不變
   if(s.memo&&typeof K!=='undefined'&&K&&K.setupChecks&&K.setupChecks[s.memo]!==true&&typeof mdLegsAlt==='function'&&mdLegsAlt(s.id))legs=mdLegsAlt(s.id);
   if(hr)return [hr[0],hr[1]];
-  var c=stepCells(s,legs),tm=s.tm||[0,0];
+  var c,tm=s.tm||[0,0],hc;
+  if((s.holdOf||s.holdGo)&&typeof holdCellsIn==='function'){hc=holdCellsIn(s,ord||dayOrder(TC()));c=hc||[0,0];}else c=stepCells(s,legs);   // 改：批 25-B，最後一趟的站：格數從前一站查表，查不到算 0（畫面另外寫「沒算」）
   var mp=(legs&&legs.length)?Math.max(0,legInfo(legs,'pages')-1):0;
   return [Math.round(c[0]*SEC_PER_CELL_FAST+tm[0]+mp*MAP_CHANGE_SEC[0]),Math.round(c[1]*SEC_PER_CELL_SLOW+tm[1]+mp*MAP_CHANGE_SEC[1])];
 }
@@ -3360,7 +3629,7 @@ function rangeOver(pick,ch,defs,legsOf,hist){
   var cs=choiceCombos(ch||{},defs),lo=null,hi=null,i,j,st,a,b,r,ord;
   for(i=0;i<cs.length;i++){
     st=pick(cs[i]);a=0;b=0;ord=dayOrder(cs[i]);   // legsOf(步驟 id, 這個抽籤組合下今天的步驟順序)：每步起點＝上一站
-    for(j=0;j<st.length;j++){r=stepTimeWith(st[j],legsOf(st[j].id,ord),hist);a+=r[0];b+=r[1];}
+    for(j=0;j<st.length;j++){r=stepTimeWith(st[j],legsOf(st[j].id,ord),hist,ord);a+=r[0];b+=r[1];}
     if(lo===null||a<lo)lo=a;
     if(hi===null||b>hi)hi=b;
   }
@@ -3410,7 +3679,7 @@ function segTags(segKey,ch,maps,mine){
 function rangeNum(a){return a[0]===a[1]?String(a[0]):a[0]+'～'+a[1];}
 function stepTime(s,hist){return stepTimeWith(s,mdLegs(s.id),hist);}
 // 畫面用：起點照今天實際的上一站（ord＝dayOrder(今天的抽籤)）
-function stepTimeIn(s,hist,ord){return stepTimeWith(s,legsInOrder(s.id,ord),hist);}
+function stepTimeIn(s,hist,ord){return stepTimeWith(s,legsInOrder(s.id,ord),hist,ord);}
 // 一整段（'g'／'h'／'y'）今天會出現的步驟
 function segTime(segKey,ch,hist){
   var sg=findSeg(segKey);
@@ -3830,6 +4099,7 @@ function healP(){
   for(i=0;i<stk.length;i++){
     if(stk[i]&&typeof stk[i]==='object'&&typeof stk[i].s==='string'&&stk[i].s.length<=16&&(stk[i].prev===null||atValid(stk[i].prev)))okStk.push({s:stk[i].s,prev:stk[i].prev});
   }
+  holdHealP();   // 批 25-B：P.hold、P.holdNo、P.potAgain 只留合法的值
   P.atStk=okStk.slice(-80);
   // 今天開始卡：dayStart＝按過「…，開始」的時間，null＝還沒選。舊版存的進度沒有這個欄位（或型別壞掉）：今天已經在用（有進度或有位置）就當已經開始，不要突然跳出今天開始卡
   if(!(P.dayStart===null||(typeof P.dayStart==='number'&&P.dayStart>0)))P.dayStart=(hasProgress(P)||(P.at!==null&&P.at!==undefined))?Date.now():null;
@@ -3946,6 +4216,7 @@ function cleanBelow(){
   delete K.below;return true;
 }
 if(cleanBelow())saveK();
+if(cleanHold())saveK();   // 批 25-B：K.hold 只能是 true／false；沒有這個欄位＝從沒選過，不建、不存（舊存檔整份不變）
 // 批 17-B：一次性前置紀錄 K.once＝{步驟 id:'YYYY-MM-DD'|'before'}（只認 DATA.opts 各開關 pre.steps 裡的 id；日期＝兩支都做完那天的遊戲日 P.day，'before'＝玩家說以前做過）。沒有這個欄位＝沒有紀錄，不建、不存（舊存檔整份不變）；壞的項目刪掉，清空了就整個拿掉（任何會改 K.once 的地方改完都過一次 cleanOnce）。回傳有沒有改到
 function onceIds(){
   var out=[],k,s,i;
@@ -4074,6 +4345,7 @@ function loadUndo(){
       if(u.N&&typeof u.N==='object'&&!Array.isArray(u.N))n.N=u.N;   // 批 17-B：一次性前置紀錄的快照（舊快照沒有；沒用過前置的人也不會有）
       if(u.NB&&typeof u.NB==='object'&&!Array.isArray(u.NB))n.NB=u.NB;   // 批 22-B3：兩支分開記的前置紀錄 K.onceBy 的快照（舊快照沒有；空物件＝那時沒有 K.onceBy）
       if(u.U&&typeof u.U==='object'&&!Array.isArray(u.U))n.U=u.U;   // 批 21-A：打怪任務勾選（K.hunt）的快照（舊快照沒有；沒動過勾選的人也不會有；空物件＝那時沒有 K.hunt）
+      if(u.HD===null||typeof u.HD==='boolean')n.HD=u.HD;   // 批 25-B：「今天先不交」（K.hold）的快照（true／false；null＝那時沒有這個欄位）
       if(u.BL==='show'||u.BL==='hide'||u.BL==='')n.BL=u.BL;   // 批 23-B3：「比你低的每日要不要列」（K.below）的快照（字串；舊快照沒有；''＝那時還沒選；沒選過的人也不會有）
       out.push(n);
     }
@@ -4222,6 +4494,7 @@ function pushUndo(say,full){
     if(K.once!==undefined)UNDO[UNDO.length-1].N=JSON.parse(JSON.stringify(K.once));   // 批 17-B：一次性前置紀錄也進快照（沒用過前置的人沒有 K.once，格式不變）
     if(K.onceBy!==undefined)UNDO[UNDO.length-1].NB=JSON.parse(JSON.stringify(K.onceBy));   // 批 22-B3：兩支分開記的前置紀錄也進快照（沒有 K.onceBy 的人格式不變；會改它的動作先建好空的，撤銷才帶得回「沒有」）
     if(K.hunt!==undefined)UNDO[UNDO.length-1].U=JSON.parse(JSON.stringify(K.hunt));   // 批 21-A：打怪任務勾選也進快照（沒動過勾選的人沒有 K.hunt，格式不變；會改 K.hunt 的動作先建好 K.hunt，撤銷才帶得回「沒有」）
+    if(K.hold!==undefined)UNDO[UNDO.length-1].HD=K.hold;else if(ui.holdSnap)UNDO[UNDO.length-1].HD=null;   // 批 25-B：「今天先不交」（K.hold）也進快照；第一次改之前沒有這個欄位，快照記 null，撤銷才回到「沒有」
     if(K.below!==undefined)UNDO[UNDO.length-1].BL=K.below;   // 批 23-B3：「比你低的每日要不要列」也進快照（沒選過的人沒有 K.below，格式不變；applyBelow 第一次選之前先建 ''，撤銷才帶得回「沒有」）
     while(UNDO.length>UNDO_MAX)UNDO.shift();
     saveU();
@@ -4323,6 +4596,294 @@ var TXT25={
   syncWaitLv1:'另一個分頁剛改過紀錄。等你打完字、點別的地方，這一頁就會換成最新的；等級格子裡打的字會留著，但要按〔用這個等級〕才會存。',
   skipBtn:'今天不做'
 };
+// 給玩家看的新字（批 25-B，先不交模式；規格在 每日引導_先不交模式_計畫_25B_2026-11-28 第五節 5-1 的區塊）
+var TXT25B={
+  chk:'今天先不交（要吃經驗藥水）',
+  chkSay:'勾了：每個任務先做到「可以交了」，全部做完再吃經驗藥水、一站一站去交。凌晨 4 點前要交完（玩家 2026-11-23 實測：沒交的過了 4 點會歸零），要交的東西整天帶著。按了開始，今天就照這個排。',
+  moreBtn:'詳細資料：哪些留到最後、要帶什麼',
+  more1:'留到最後的：回報、交東西、送便當、社長的配送（玩家 2026-11-28 說的：都要回去交，交東西就完成的也留到最後）。照原本的位置做：中間的交材料（柯蘿娜、錫麗卡、玫宛、艾樂詹、拉尤麻、搭建陣地的眼鏡蛇、婚禮的蛋糕與酒）、一次性的前置、湯姆的裝置檢查（要不要回去找湯姆還不知道）。',
+  more2:'要一直帶著的：鉗子 5、採到的香菇或卵殼、今天搭建陣地最後要交的材料、瑪哪樹枝 15、夏碧特的材料、便當；有勾的才要：魔羌之角 10、凝固的岩漿 10、書 5、魔羌之毛皮 10＋七彩大嘴鳥之羽 10、犯人的手鍊 20。',
+  more3:'負重夠不夠這頁不知道。建議出門前看一下負重，因為背太重可能放不出技能（推論：原版規則是負重超過 90% 不能用技能）。背不動的那幾個，在流程表那一行按〔這一個今天照常交〕，就照平常當場交。',
+  more4:'最後一趟的順序：（有斐揚的任務先交斐揚）朱諾 → 毀葛 → 里希塔樂 → 鋼都。原因：朱諾的兩個記點剛好在弗雷里、爾弗雷多旁，可以開門直達；終點在鋼都，收工那一步幾乎不用再走（路線模擬）。時間全是推論，多數日子會超過一瓶 30 分鐘。',
+  more5:'白天有幾步的卡片寫「從某某走過去」：那個人今天留到最後了，起點和地圖會不準，請照導航指令走（推論）。',
+  sayOn:'已勾：今天先不交。按「開始」之後照這個排。',
+  sayOff:'已取消：今天照平常交。',
+  undoOn:'勾「今天先不交」',
+  undoOff:'取消「今天先不交」',
+  rowR:'{nm}：今天先不交，最後一趟一起交。',
+  rowG:'{nm}：今天先不交，要交的東西帶在身上，最後一趟一起交。',
+  rowB:'{nm}：今天先不送，便當帶在身上，最後一趟一起送。',
+  rowD:'{nm}：今天整組留到最後一趟（要先接、一件一件搬回去交）。',
+  rowF:'{nm}：今天打夠就好，先不回報，最後一趟一起回報。',
+  noBtn:'這一個今天照常交',
+  noSay:'已改成：{nm}今天照常交，最後一趟不會有這一站。可以撤銷。',
+  noUndo:'照常交：{nm}',
+  fAct:'照任務視窗打夠就好。打夠了先不回{npc}回報，最後一趟再回報。',
+  fFin:'任務說明顯示打夠了就算（實際畫面還沒確認）；回報留到最後一趟。',
+  fNote:'今天先不交：這一步只打怪，回{npc}回報在最後一趟。沒回報的過了凌晨 4 點會歸零（玩家 2026-11-23 實測），所以最後一趟要在 4 點前交完。',
+  topSay:'｜今天先不交：任務數到最後一趟才會加',
+  oldLeft:'還有 {n} 站沒交；過了凌晨 4 點，遊戲裡這些任務已經歸零（玩家 2026-11-23 實測）。',
+  tripHead:'最後一趟：還有 {n} 站，估計{t}（推論：走路照路線模擬的格數、從今天實際的上一站算，講話、搭車照網頁的估法，都沒有實測）。',
+  tripNoCells:'其中 {n} 段的路沒算格數，實際會更久。',
+  tripBento:'便當那一站要等你在伯母那裡選了送給誰才會出現。',
+  potLeft:'經驗藥水還剩約 {m} 分（一瓶 30 分鐘，玩家 2026-11-26 說的）。',
+  potOver:'經驗藥水已經過了 30 分鐘（一瓶 30 分鐘，玩家 2026-11-26 說的）。',
+  potShort:'照估計最慢的算，藥水會在交完之前用完（推論）。要不要再喝一瓶由你決定：想再喝就按〔再喝一瓶，重新倒數〕。',
+  potBtn:'再喝一瓶，重新倒數',
+  potSay:'已重新倒數 30 分鐘。可以撤銷。',
+  potUndo:'再喝一瓶經驗藥水',
+  reset4:'離凌晨 4 點換日還有 {t}；沒交的任務過了 4 點會歸零（玩家 2026-11-23 實測）。',
+  packHead:'今天先不交：',
+  packOre:'最後一趟最多再開 2 次門（弗雷里旁、爾弗雷多旁；有斐揚的任務時再 1 次），藍色魔力礦石多帶 2～3 顆（推論：照最後一趟的站算）。',
+  preMany:'有 {n} 個前置任務可以做：{names}',
+  preBtn:'看',
+  walkFrom:'{n} 格（從{from}算起，路線模擬）',
+  walkNone:'這段格數沒算（路線模擬沒有從{from}出發的資料）',
+  walkDoor:'0 格（開門）',
+  nest:'最後一個巢穴',
+  etaNoCells:'（最後一趟有 {n} 段的路沒算）'
+};
+// 批 25-B 小批 25B-d（主 session 實看後加；玩家 2026-11-28 選「開始鈕搬到最上面」）：開始鈕下面的提醒、勾著時開始鈕上方的一行、最後一趟 8-0 以外的短句
+var TXT25D={
+  startNote:'下面兩項（打怪任務、今天先不交）想改，先改再按開始。',
+  holdOn:'今天先不交：勾著',
+  tripShort:'最後一趟：還有 {n} 站，估計{t}（估的，沒實測）。'
+};
+function holdOnLine(){return (holdD()&&K.hold===true)?'<p class="small holdon">'+esc(TXT25D.holdOn)+'</p>':'';}
+function holdStartNote(){return holdD()?'<p class="small holdstart">'+esc(TXT25D.startNote)+'</p>':'';}
+// 批 25-B：用過先不交嗎（K.hold 或今天凍結的 P.hold 是 true）；每日回報那 6 題靠它決定出不出現
+function holdUsed(){return !!((typeof K!=='undefined'&&K&&K.hold===true)||(typeof P!=='undefined'&&P&&P.hold===true));}
+// 批 25-B：這個單位（原步驟＋它的分身）的紀錄；〔這一個今天照常交〕的條件（計畫 3-2）：今天進行中或舊的一天繼續做、還沒按過、原步驟與分身都沒有玩家自己記的紀錄、而且大卡還沒走過「單位最後一個原步驟之後第一個看得到的步驟」
+function holdUnitIds(u){var d=holdD(),k,out=[];if(!d||!d.steps)return out;for(k in d.steps){if(Object.prototype.hasOwnProperty.call(d.steps,k)&&(d.steps[k].u||k)===u)out.push(k);}return out;}
+function holdNoOk(u){
+  var ds=holdDs(),ids,all,i,j,l,r,last=-1,flat=[],ch;
+  if(!holdOn()||(ds!=='ok'&&ds!=='old'))return false;
+  if(P.holdNo&&P.holdNo[u]===true)return false;
+  ids=holdUnitIds(u);all=ids.concat(holdTwins(ids));
+  for(i=0;i<all.length;i++){r=P.done[all[i]];if(r&&!autoOnlyRec(r))return false;}
+  for(i=0;i<DATA.segments.length;i++){l=DATA.segments[i].items;for(j=0;j<l.length;j++){if(!l[j].kind)flat.push(l[j]);}}
+  for(i=0;i<flat.length;i++){if(ids.indexOf(flat[i].id)>=0)last=i;}
+  if(last<0)return false;
+  ch=TC();
+  for(i=last+1;i<flat.length;i++){if(stepShown(flat[i],ch))return !isDoneRec(P.done[flat[i].id]);}
+  return true;
+}
+// 批 25-B：先不交那天，被藏起來的原步驟在原位置留一行小字（只打怪的那幾步，小字畫在步驟前面）；條件成立時後面多一顆〔這一個今天照常交〕
+function holdRowHtml(s){
+  var e=holdE(s.id),u,k,t,b='';
+  if(!e)return '';
+  u=e.u||s.id;
+  k=e.ty==='r'?'rowR':(e.ty==='g'?'rowG':(e.ty==='b'?'rowB':(e.ty==='d'?'rowD':(e.ty==='f'?'rowF':''))));
+  if(!k)return '';
+  t=TXT25B[k].split('{nm}').join(stepNm(s));
+  if(holdNoOk(u))b=' <button type="button" class="btn mini" data-act="holdno" data-k="'+esc(u)+'">'+esc(TXT25B.noBtn)+'</button>';
+  return '<p class="small holdrow" data-hold="'+esc(u)+'">'+esc(t)+b+'</p>';
+}
+// 按〔這一個今天照常交〕：這個單位今天照平常（原步驟回來、分身消失）；走 recordAct，可撤銷。原步驟回來之後，上游今天不做的話補記跳過（計畫 24-2）
+function applyHoldNo(u){
+  var ids=holdUnitIds(u),i,nm='',f;
+  if(!ids.length||!holdNoOk(u)){toast(MSG_RECORDED);return;}
+  for(i=0;i<ids.length;i++){f=findStep(ids[i]);if(f&&holdBase(f.s,TC())){nm=f.s.nm||plainTitle(f.s.t);break;}}
+  if(!nm){f=findStep(ids[0]);nm=f?(f.s.nm||plainTitle(f.s.t)):u;}
+  recordAct(TXT25B.noUndo.split('{nm}').join(nm),TXT25B.noSay.split('{nm}').join(nm),function(){
+    var k,o,up;
+    if(!P.holdNo)P.holdNo={};
+    P.holdNo[u]=true;
+    for(k=0;k<ids.length;k++){o=holdFind(ids[k]);up=o&&o.needs;if(up){upSkipSync(up,['r','p']);if(isSkipRec(P.done[up]))applyAutoSkip(P.done,P.times,up);}}
+    saveP();syncC2();renderFlow();
+  });
+}
+// 批 25-B：開場卡那一格「今天先不交」（K.hold；只有開場卡出現時＝start／ask 能改；走 recordAct，可撤銷）。第一次改之前 ui.holdSnap 讓撤銷快照記下「那時沒有這個欄位」（HD＝null）
+function applyHold(on){
+  var ds=dayState();
+  if(ds!=='start'&&ds!=='ask'){toast(MSG_RECORDED);return;}
+  if((K.hold===true)===on){toast(MSG_RECORDED);return;}
+  ui.holdSnap=true;
+  recordAct(on?TXT25B.undoOn:TXT25B.undoOff,on?TXT25B.sayOn:TXT25B.sayOff,function(){K.hold=on;saveK();renderPack();renderFlow();});
+  ui.holdSnap=false;
+}
+// 批 25-B：K.hold 只能是 true／false（沒有＝從沒選過，不建不存）；P.hold 只能是 true；P.holdNo 只能是 {單位:true}；P.potAgain 只能是正數
+function cleanHold(){
+  if(K.hold===undefined)return false;
+  if(K.hold===true||K.hold===false)return false;
+  delete K.hold;return true;
+}
+function holdHealP(){
+  var k,n=0;
+  if(P.hold!==undefined&&P.hold!==true)delete P.hold;
+  if(P.holdNo!==undefined){
+    if(!P.holdNo||typeof P.holdNo!=='object'||Array.isArray(P.holdNo))delete P.holdNo;
+    else{for(k in P.holdNo){if(Object.prototype.hasOwnProperty.call(P.holdNo,k)){if(P.holdNo[k]!==true)delete P.holdNo[k];else n++;}}if(!n)delete P.holdNo;}
+  }
+  if(P.potAgain!==undefined&&!(typeof P.potAgain==='number'&&P.potAgain>0))delete P.potAgain;
+}
+// ---- 最後一趟的吃藥水倒數（一瓶 30 分鐘，玩家 2026-11-26 說的）：起點＝吃藥水那一步做完的時間與〔再喝一瓶〕的時間，取晚的
+function holdPotStart(){return Math.max((P.times&&P.times['8-0'])||0,P.potAgain||0);}
+function holdPotLeftMs(){return 30*60*1000-(Date.now()-holdPotStart());}
+function holdPotText(){var l=holdPotLeftMs();return l<=0?TXT25B.potOver:TXT25B.potLeft.split('{m}').join(String(Math.max(1,Math.round(l/60000))));}
+function holdResetShow(){return nextResetMs(Date.now())-Date.now()<=90*60*1000;}
+function holdResetText(){return TXT25B.reset4.split('{t}').join(resetLeftText(Date.now()));}
+// 最後一趟「還沒做完」的站（不含吃藥水）
+function holdLeftSteps(f){
+  var d=holdD(),sg=d?findSeg(d.seg):null,l,i,out=[];
+  if(!sg)return out;
+  l=stepList(sg.items,f);
+  for(i=0;i<l.length;i++){if(!l[i].holdPot&&!isDoneRec(P.done[l[i].id]))out.push(l[i]);}
+  return out;
+}
+function holdNoCellsN(undoneOnly){
+  var d=holdD(),sg,l,ord,i,n=0,ch=TC();
+  if(!d)return 0;
+  sg=findSeg(d.seg);if(!sg)return 0;
+  l=stepList(sg.items,ch);ord=dayOrder(ch);
+  for(i=0;i<l.length;i++){
+    if(!(l[i].holdOf||l[i].holdGo)||!l[i].hn)continue;
+    if(undoneOnly&&isDoneRec(P.done[l[i].id]))continue;
+    if(holdCellsIn(l[i],ord)===null)n++;
+  }
+  return n;
+}
+function holdEtaNote(){var n;if(!holdOn())return '';n=holdNoCellsN(true);return n?esc(TXT25B.etaNoCells.split('{n}').join(String(n))):'';}
+function holdInfoNote(id){var d=holdD(),n;if(!d||!holdOn()||(id!=='*'&&id!==d.seg))return '';n=holdNoCellsN(false);return n?' '+esc(TXT25B.etaNoCells.split('{n}').join(String(n))):'';}
+function holdTopSay(){var ds;if(!holdOn())return '';ds=holdDs();return (ds==='ok'||ds==='old')?TXT25B.topSay:'';}
+function holdLeftN(){var l=holdLeftSteps(TC()),i,n=0;for(i=0;i<l.length;i++){if(l[i].holdOf&&(l[i].quest||l[i].subs))n++;}return n;}
+function holdOldTail(){var n;if(P.hold!==true||!holdOn())return '';n=holdLeftN();return n>0?' '+TXT25B.oldLeft.split('{n}').join(String(n)):'';}
+function holdPackHtml(){
+  var ds=dayState(),on=(ds==='ask')?(K.hold===true):holdOn();
+  if(!on||!holdD())return '';
+  return '<p class="small holdpack">'+esc(TXT25B.packHead+TXT25B.packOre+TXT25B.more2+TXT25B.more3)+'</p>';
+}
+// 最後一趟大卡上方那一行：還有幾站、估計多久、藥水剩多少、離 4 點多久
+function holdTripHtml(full){
+  var ch=TC(),d=holdD(),sg=d?findSeg(d.seg):null,left=holdLeftSteps(ch),n=0,nc=0,ord=dayOrder(ch),i,r,h,st,leftSec,pot='',rs='',sg2=sg;
+  if(!sg2||!left.length){ui.holdTripSig=undefined;return '';}
+  for(i=0;i<left.length;i++){
+    if(left[i].holdOf&&(left[i].quest||left[i].subs))n++;
+    if((left[i].holdOf||left[i].holdGo)&&left[i].hn&&holdCellsIn(left[i],ord)===null)nc++;
+  }
+  r=rangeOver(function(f){return holdLeftSteps(f);},ch,choiceDefs(DATA.choices),legsInOrder,K.hist);
+  h=(full?TXT25B.tripHead:TXT25D.tripShort).split('{n}').join(String(n)).split('{t}').join(fmtRange(r[0],r[1]));   // 8-0 那一步完整句；其他最後一趟的步驟短句（每一步都重複一長串太吵）
+  if(nc)h+=' '+TXT25B.tripNoCells.split('{n}').join(String(nc));
+  if(!ch.bento||ch.bento==='-')h+=' '+TXT25B.tripBento;
+  st=holdPotStart();
+  if(st){
+    leftSec=Math.max(0,holdPotLeftMs()/1000);
+    pot=' <span class="potleft" id="potLeft">'+esc(holdPotText())+'</span>';
+    if(r[1]>leftSec)pot+=' '+esc(TXT25B.potShort)+' <button type="button" class="btn mini" data-act="potagain">'+esc(TXT25B.potBtn)+'</button>';
+  }
+  if(holdResetShow())rs=' <span class="reset4" id="reset4">'+esc(holdResetText())+'</span>';
+  ui.holdTripMax=r[1];
+  ui.holdTripSig=(st?'p':'-')+(holdResetShow()?'r':'-')+((st&&r[1]>Math.max(0,holdPotLeftMs()/1000))?'s':'-');
+  return '<p class="small holdtrip">'+esc(h)+pot+rs+'</p>';
+}
+// 大卡最前面多放的東西：只打怪的那幾步＝它的一行小字；3-4（n 類）＝便當那一行；最後一趟的站＝這一行趟的總覽
+function holdHeroPre(s){
+  var hf=holdF(s),hn,o;
+  ui.holdTripSig=undefined;
+  if(hf)return holdRowHtml(s);
+  hn=holdN(s);
+  if(hn&&hn.row){o=holdFind(hn.row);return o?holdRowHtml(o):'';}
+  if(s.holdOf||s.holdGo||s.holdPot)return holdTripHtml(!!s.holdPot);
+  return '';
+}
+// 每分鐘：只換藥水與離 4 點那兩段字，不整頁重畫；兩件事的「有沒有」變了（剛好過 90 分鐘、藥水不夠了）才重畫
+function holdTick(){
+  var a,b,sg;
+  if(!holdOn()||dayState()!=='ok')return;
+  if(ui.holdTripSig!==undefined){
+    sg=(holdPotStart()?'p':'-')+(holdResetShow()?'r':'-')+((holdPotStart()&&ui.holdTripMax>Math.max(0,holdPotLeftMs()/1000))?'s':'-');
+    if(sg!==ui.holdTripSig){renderFlow();return;}
+  }
+  a=document.getElementById('potLeft');if(a&&holdPotStart())a.textContent=holdPotText();
+  b=document.getElementById('reset4');if(b&&holdResetShow())b.textContent=holdResetText();
+}
+// 〔再喝一瓶，重新倒數〕：P.potAgain＝現在；走 recordAct（可撤銷）
+function applyPotAgain(){
+  if(!holdOn()||!P.times||!P.times['8-0']){toast(MSG_RECORDED);return;}
+  recordAct(TXT25B.potUndo,TXT25B.potSay,function(){P.potAgain=Date.now();saveP();renderFlow();});
+}
+// 最後一趟某一站的「去哪」那一行的格數句（計畫 6-2 第 25 列；查不到寫「沒算」，不悄悄算成 0）
+function holdWalkText(s){
+  var ord=dayOrder(TC()),c=holdCellsIn(s,ord),k,i,f,x,from='',prevTo=null;
+  k=ord?ord.indexOf(s.id):-1;
+  for(i=k-1;i>=0;i--){
+    f=findStep(ord[i]);x=f&&f.s;
+    if(!x||!(x.holdOf||x.holdGo||x.holdPot))break;
+    if(x.holdPot)continue;
+    if(isSkipRec(P.done[x.id]))continue;
+    if(x.hn){prevTo=x.to;break;}
+  }
+  from=prevTo||(s.id==='8-2a'?TXT25B.nest:'白天最後一步');
+  if(s.hDoor)return c?TXT25B.walkDoor:TXT25B.walkNone.split('{from}').join(from);
+  if(!c)return TXT25B.walkNone.split('{from}').join(from);
+  return TXT25B.walkFrom.split('{n}').join(String(c[0])).split('{from}').join(from);
+}
+// 開場卡「今天先不交」那一格（只有開場卡出現時才畫）
+function holdCardHtml(){
+  var d=holdD(),on=(K.hold===true),open=!!ui.huntOpen.hold,h,i,ks=['more1','more2','more3','more4','more5'];
+  if(!d)return '';
+  h='<div class="hold25" id="holdCard"><button type="button" class="hchk" role="checkbox" aria-checked="'+(on?'true':'false')+'" data-act="hold" data-v="'+(on?'off':'on')+'">'+esc(TXT25B.chk)+'</button><p class="small">'+esc(TXT25B.chkSay)+'</p>'
+    +'<button type="button" class="btn mini" data-act="hopen" data-k="hold" data-blk="huntOpen|hold" aria-expanded="'+open+'" aria-controls="hb-hold">'+esc(TXT25B.moreBtn)+'</button><div id="hb-hold"'+(open?'':' hidden')+'><ul class="notes">';
+  for(i=0;i<ks.length;i++)h+='<li>'+esc(TXT25B[ks[i]])+'</li>';
+  return h+'</ul></div></div>';
+}
+// 開場卡的紫色提示（C10）：還關著、有 preCard.hint 的舊式開關——1 個＝那一句原文；2 個以上＝TXT25B.preMany（名字從每句「另有前置任務可以做：…。」切出來，括號資訊留著）；有一句切不出來就不合併、照現在一句一行。後面接〔看〕
+function preHintAll(){
+  var raws=[],names=[],all=true,k,o,c,m,btn,h='',i;
+  for(k in DATA.opts){
+    if(!Object.prototype.hasOwnProperty.call(DATA.opts,k))continue;
+    o=DATA.opts[k];c=o&&o.preCard;
+    if(!c||huntKey(k)||!c.hint||optVal(k)!=='off')continue;
+    raws.push(c.hint);
+    m=/^另有前置任務可以做：(.+?)。/.exec(c.hint);
+    if(m)names.push(m[1]);else all=false;
+  }
+  if(!raws.length)return '';
+  btn='<button type="button" class="btn mini" data-act="preopen">'+esc(TXT25B.preBtn)+'</button>';
+  if(raws.length===1)return '<p class="hprehint">'+esc(raws[0])+' '+btn+'</p>';
+  if(!all){for(i=0;i<raws.length;i++)h+='<p class="hprehint">'+esc(raws[i])+(i===raws.length-1?' '+btn:'')+'</p>';return h;}
+  return '<p class="hprehint">'+esc(TXT25B.preMany.split('{n}').join(String(names.length)).split('{names}').join(names.join('、')))+' '+btn+'</p>';
+}
+// 開場卡的打怪任務：平常收成一行（摘要＋〔改〕），點〔改〕才打開原本的勾選區；再接合併的紫色提示
+function huntCardInner(){
+  var open=!!ui.huntOpen.card;
+  return '<span class="hsum">'+esc(huntSumText())+'</span><button type="button" class="btn mini" data-act="hopen" data-k="card" data-blk="huntOpen|card" data-lo="'+esc(HUNT_TXT.close)+'" data-lc="'+esc(HUNT_TXT.edit)+'" aria-expanded="'+open+'" aria-controls="hb-card">'+esc(open?HUNT_TXT.close:HUNT_TXT.edit)+'</button>'+preHintAll()+'<div id="hb-card"'+(open?'':' hidden')+'>'+huntBodyHtml(false)+'</div>';
+}
+// 〔看〕：打開開場卡的打怪任務與有前置任務卡的那幾段，捲到第一張前置任務卡
+function holdPreOpen(){
+  var k,o,c,e;
+  ui.huntOpen.card=true;
+  for(k in DATA.opts){
+    if(!Object.prototype.hasOwnProperty.call(DATA.opts,k))continue;
+    o=DATA.opts[k];c=o&&o.preCard;
+    if(c&&!huntKey(k)&&optVal(k)==='off')ui.huntOpen['b-'+c.band]=true;
+  }
+  renderHuntUi();
+  e=(typeof document.querySelector==='function')?document.querySelector('.hcell.hpre'):null;
+  if(e&&e.scrollIntoView)e.scrollIntoView({behavior:reduceMotion?'auto':'smooth',block:'center'});
+}
+// 批 25-B：最後一趟某一站要走的格數 [n,n]；查不到回 null（畫面寫「這段格數沒算」，不悄悄算成 0）。
+// 上一站＝ord 裡在這一站前面、屬於最後一趟、看得到、不是兩支都今天不做的最近一步的離開點 hn[1]；沒有就（只有 8-2a）從最後一個巢穴 y_nest 算；開門的站（hDoor）記點沒做過就查不到
+function holdCellsIn(s,ord){
+  var h=s.hn,d=holdD(),k,i,f,x,prev=null,dt,n;
+  if(!h||!d||!d.dist)return null;
+  if(s.hDoor)return memoOff(s)?null:[0,0];
+  if(h[0]===null)return [0,0];
+  k=ord?ord.indexOf(s.id):-1;
+  for(i=k-1;i>=0;i--){
+    f=findStep(ord[i]);x=f&&f.s;
+    if(!x||!(x.holdOf||x.holdGo||x.holdPot))break;
+    if(x.holdPot)continue;
+    if(P.done&&isSkipRec(P.done[x.id]))continue;
+    if(x.hn){prev=x.hn[1];break;}
+  }
+  if(prev===null&&s.id==='8-2a')prev='y_nest';
+  if(prev===null)return null;
+  dt=d.dist[prev+'>'+h[0]];
+  if(typeof dt!=='number')return null;
+  n=dt+(s.hIn||0);
+  return [n,n];
+}
 // 批 23-A2：DATA.report 裡「已經確認、這題不用再填」的題（照陣列位置）。K.report 的答案本來就是照位置存的（q0…），位置就是題目的身分；
 // test_batch23_A2 TA2-7 會檢查：這份清單＝DATA.report 第二欄以「這題不用再填」結尾的題（兩邊對不上就紅）
 // 批 26-A：第 0 題活動結束後重新開放（裁決 Q3）：「這題不用再填」的題從 0 拿掉，第 0 題回到「還沒確認」那一區
@@ -4343,6 +4904,7 @@ function actRollback(x,sP,sH,u,dropped,la){
       if(u.N!==undefined)K.once=JSON.parse(JSON.stringify(u.N));else delete K.once;
       if(u.NB!==undefined)K.onceBy=JSON.parse(JSON.stringify(u.NB));else delete K.onceBy;   // 批 22-B3
       if(u.U!==undefined)K.hunt=JSON.parse(JSON.stringify(u.U));else delete K.hunt;
+      if(u.HD===null||typeof u.HD==='boolean'){if(u.HD===null)delete K.hold;else K.hold=u.HD;}else delete K.hold;   // 批 25-B
       if(u.BL!==undefined)K.below=u.BL;else delete K.below;   // 批 23-B3
       cleanBelow();
     }
@@ -4354,12 +4916,12 @@ function actRollback(x,sP,sH,u,dropped,la){
 }
 function recordAct(say,msg,fn){
   ui.ptConfirm=null;   // 記了別的動作：回到還沒按過
-  var la=P.lastAct,sP=JSON.stringify(P),sH=JSON.stringify(K.hist),u,before=sP+'|'+sH+(K.opts!==undefined?'|'+optsSig():'')+(K.lv!==undefined?'|'+lvSig():'')+(K.once!==undefined?'|'+onceSig():'')+(K.onceBy!==undefined?'|'+onceBySig():'')+(huntAny()?'|'+huntSig():'')+(K.below!==undefined?'|'+K.below:''),dropped=(UNDO.length>=UNDO_MAX)?UNDO[0]:null,la2,same;   // 滿 20 份時 pushUndo 會擠掉最舊的；沒變化要把它放回去
+  var la=P.lastAct,sP=JSON.stringify(P),sH=JSON.stringify(K.hist),u,before=sP+'|'+sH+(K.opts!==undefined?'|'+optsSig():'')+(K.lv!==undefined?'|'+lvSig():'')+(K.once!==undefined?'|'+onceSig():'')+(K.onceBy!==undefined?'|'+onceBySig():'')+(huntAny()?'|'+huntSig():'')+(K.below!==undefined?'|'+K.below:'')+(K.hold!==undefined?'|h'+K.hold:''),dropped=(UNDO.length>=UNDO_MAX)?UNDO[0]:null,la2,same;   // 滿 20 份時 pushUndo 會擠掉最舊的；沒變化要把它放回去
   u=pushUndo(say);
   P.lastAct=Date.now();   // 最後一次動作的時間（判斷「休息後回來」）；快照存的是動作之前的樣子，所以撤銷時連這個時間也退回去
   try{fn();}catch(x){actRollback(x,sP,sH,u,dropped,la);return false;}   // 批 22-A1：中途出錯，整個退回按之前
   la2=P.lastAct;P.lastAct=la;   // 比對有沒有變化時不看 lastAct
-  same=((JSON.stringify(P)+'|'+JSON.stringify(K.hist)+(K.opts!==undefined?'|'+optsSig():'')+(K.lv!==undefined?'|'+lvSig():'')+(K.once!==undefined?'|'+onceSig():'')+(K.onceBy!==undefined?'|'+onceBySig():'')+(huntAny()?'|'+huntSig():'')+(K.below!==undefined?'|'+K.below:''))===before);   // 改：批 21-A，打怪組的勾選（K.hunt；沒有與空物件都算 null）也比對
+  same=((JSON.stringify(P)+'|'+JSON.stringify(K.hist)+(K.opts!==undefined?'|'+optsSig():'')+(K.lv!==undefined?'|'+lvSig():'')+(K.once!==undefined?'|'+onceSig():'')+(K.onceBy!==undefined?'|'+onceBySig():'')+(huntAny()?'|'+huntSig():'')+(K.below!==undefined?'|'+K.below:'')+(K.hold!==undefined?'|h'+K.hold:''))===before);   // 改：批 21-A，打怪組的勾選（K.hunt；沒有與空物件都算 null）也比對
   if(same){UNDO.pop();if(dropped)UNDO.unshift(dropped);saveU();saveP();renderFlow();toast(MSG_RECORDED);return false;}
   P.lastAct=la2;saveP();
   toastAct(typeof msg==='function'?msg():msg,true);   // msg 是函式：做完事才知道要說什麼（例：改答案後哪些步驟受影響）
@@ -4383,6 +4945,7 @@ function undoLast(){
   if(u.NB!==undefined)K.onceBy=JSON.parse(JSON.stringify(u.NB));else if(u.N!==undefined)delete K.onceBy;   // 批 22-B3（審查補修 E2）：兩支分開記的前置紀錄跟著退回（快照沒有 NB、有 N＝當時沒有 K.onceBy，拿掉）
   if(u.N!==undefined||u.NB!==undefined)cleanOnce();   // 兩個都還原完才整理一次（分開整理會把還沒還原的另一邊當成現況去合併）
   if(u.U!==undefined){K.hunt=JSON.parse(JSON.stringify(u.U));cleanHunt();}   // 批 21-A：打怪任務勾選跟著退回（舊快照沒有 U，勾選不動；U 是空物件＝那時沒有 K.hunt，cleanHunt 會拿掉）
+  if(u.HD===null)delete K.hold;else if(typeof u.HD==='boolean'){K.hold=u.HD;cleanHold();}   // 批 25-B：「今天先不交」跟著退回（HD＝null＝那時沒有這個欄位）
   if(u.BL!==undefined){K.below=u.BL;cleanBelow();}   // 批 23-B3：「比你低的每日要不要列」跟著退回（快照沒有 BL＝那時還沒選過，之後的動作快照都比它晚、撤銷是後進先出，所以不用另外刪；''＝第一次選之前，cleanBelow 會拿掉）
   healP();huntHealP();
   if(P.lastAct>0&&Date.now()-P.lastAct>REST_CUTOFF_SEC*1000)P.lastAct=Date.now();   // 玩家剛按了撤銷，是在用的，不要因為快照裡的舊時間跳出「休息回來」
@@ -4806,10 +5369,11 @@ function chainSayText(ch){
 }
 // 卡片上的目標句與標題：3-1、3-8 記點還沒做過用走路版（goalWalk／tWalk）；3-4 前一步（noPrev.id）今天跳過了、或大卡上還沒做，就不說「交完便當」
 function stepGoalT(s,hero){
-  var g=s.goal,t=s.t,r,sw,w;
+  var g=s.goal,t=s.t,r,sw,w,hf;
   if(s.goalWalk&&memoOff(s)){g=s.goalWalk;t=s.tWalk||t;}
   if(noPrevOn(s,hero)&&s.noPrev.goal){g=s.noPrev.goal;t=s.noPrev.t;}
   sw=optSwap(s);if(sw){g=sw.goal;t=sw.t;if(s.goalWalk&&memoOff(s)&&sw.goalWalk){g=sw.goalWalk;t=sw.tWalk||t;}}   // 批 15：上一站是加做步驟（抓書）時換成土黎版的字；改：批 18-A，記點還沒做過且換字有 goalWalk 就用換字的走路版
+  hf=holdF(s);if(hf){g=hf.goal;t=hf.t;}   // 批 25-B：先不交那天只打怪的那幾步，目標句與標題只說到打夠
   w=oneRoleName(s.id);   // 批 22-C（E7）：這一步只有一支要做時，目標句與標題的「兩支都」換成那一支（跟按鈕字 roleLabel 同一種換法）；DATA 的字不動
   if(w){
     if(typeof g==='string')g=g.split('兩支都').join(w);
@@ -4836,10 +5400,13 @@ function noPrevOn(s,hero){
   var r;
   if(!s||!s.noPrev)return false;
   r=P.done[s.noPrev.id];
-  return isSkipRec(r)||!!(hero&&!isRealDone(r));
+  return isSkipRec(r)||!!(hero&&!isRealDone(r))||holdHid(s.noPrev.id);   // 改：批 25-B，前一步被先不交藏起來，也不說「交完便當」
 }
 // 批 12（12-2）：noPrev.notes＝[[原句片段,改成的片段],…]，前一步沒做時換掉 notes 裡的字（3-9「今天的已經交完」）
-function stepNotes(s,hero){
+// 批 25-B：先不交那天，這一步最前面多一句（f 類：自己的 note 或 TXT25B.fNote；n 類：自己的 note）
+function holdNoteOf(s){var h=holdF(s);if(h)return h.note||TXT25B.fNote.split('{npc}').join(h.npc);h=holdN(s);return h?h.note:'';}
+function stepNotes(s,hero){var a=stepNotes0(s,hero),n=holdNoteOf(s);return n?[n].concat(a||[]):a;}
+function stepNotes0(s,hero){
   var a=s.notes,i,j,o,sw=optSwap(s);
   if(sw&&sw.notes)a=sw.notes;   // 批 15：加做步驟是上一站時換成土黎版的注意（之後的 doorNote／noPrev 照舊）
   // 批 13-4：doorNote＝開門才有的句子（3-3「想省這段：開門回弗雷里旁」），記點不是「做過了」就不顯示
@@ -4853,6 +5420,7 @@ function stepNotes(s,hero){
 function chainSayHtml(id){
   var c=findChain(DATA.chains,id);
   if(!c||c.ch.ids.length<2)return '';   // 單步的組只有標籤（說明會跟「這步約」重複）
+  if(holdOn()&&c.ch.ids.some(function(x){var e=holdE(x);return !!e&&holdAct(e.u||x);}))return '';   // 批 25-B：先不交那天這一組有的步驟留到最後，「這幾步連著做」不成立
   var list=stepList(findSeg(c.seg).items,TC()),first=null,i;
   for(i=0;i<list.length;i++){if(c.ch.ids.indexOf(list[i].id)>=0){first=list[i].id;break;}}
   if(first!==id)return '';
@@ -4867,7 +5435,7 @@ function chainListHtml(segKey){
     c={seg:segKey,i:i,ch:arr[i]};
     r=chainTime(arr[i],segKey,TC(),K.hist);
     // 批 12（12-5）：有 sayBy 的組，抽籤選齊後只列今天真的會做的步驟
-    steps=arr[i].ids.filter(function(sid){return !arr[i].sayBy||arr[i].sayBy.indexOf(sid)<0||chainStepToday(sid);}).map(function(sid){var fs=findStep(sid);return fs?stepNm(fs.s):sid;}).join('、');   // 列步驟短名（編號只在步驟旁當小字）
+    steps=arr[i].ids.filter(function(sid){return (!arr[i].sayBy||arr[i].sayBy.indexOf(sid)<0||chainStepToday(sid))&&!holdHid(sid);}).map(function(sid){var fs=findStep(sid);return fs?stepNm(fs.s):sid;}).join('、');   // 列步驟短名（編號只在步驟旁當小字）
     h+='<li><span class="chtag">'+esc(chainLabel(c))+'</span> '+esc(steps)+'：'+esc(arr[i].t)+'　<span class="chm">'
       +(chainNever(arr[i],segKey)?'今天沒有這組':esc(fmtRange(r[0],r[1])))+'</span></li>';
   }
@@ -4888,7 +5456,7 @@ function skipWhyHtml(s,rec){
   return '<p class="skipwhy">因為「'+esc(nm)+'」（'+esc(rec.by)+'）今天不做，所以這步也不用做。要改請按「改這一步的紀錄」。</p>';
 }
 // 步驟的白話名稱（DATA 的 nm）；沒有就用標題去掉標記
-function stepNm(s){return s.nm||plainTitle(s.t);}
+function stepNm(s){var hf=holdF(s);return (hf&&hf.nm)||s.nm||plainTitle(s.t);}   // 改：批 25-B，先不交那天只打怪的那幾步用自己的名字（計畫審查 C3）
 // 「全部步驟」每張卡的「改這一步的紀錄」：只打開兩列三選一（看），要改再按裡面的鈕（走 role，會存快照）
 function editRecHtml(id){
   var f=findStep(id),open=!!ui.editOpen[id];
@@ -5085,7 +5653,7 @@ var FIN_GIVE='東西交出去才算（實際畫面還沒確認）';
 var FIN_REWARD='拿到獎勵才算（實際畫面還沒確認）';
 var FIN_KILL='任務說明顯示抓夠了就算（原文寫 3 隻左右；完成畫面還沒確認）';
 var FIN_UNK='還不知道，做完請記一句';
-function finText(s){return s.fin==='arrive'?FIN_ARRIVE:s.fin==='accept'?FIN_ACCEPT:s.fin==='give'?FIN_GIVE:s.fin==='reward'?FIN_REWARD:s.fin==='kill'?FIN_KILL:s.fin?s.fin:FIN_UNK;}
+function finText(s){var hf=holdF(s);if(hf)return hf.fin||TXT25B.fFin;return s.fin==='arrive'?FIN_ARRIVE:s.fin==='accept'?FIN_ACCEPT:s.fin==='give'?FIN_GIVE:s.fin==='reward'?FIN_REWARD:s.fin==='kill'?FIN_KILL:s.fin?s.fin:FIN_UNK;}
 // 大卡上緊跟在目標句下面的一小行
 // （2026-11-21 批 9 C1）完成類型是抵達／接任務／交付／領獎時，按鈕字已經說了同一件事，這一行不放第一屏，改放進「查看做法（詳細）」最上面（inDetail＝true）；
 // 自訂句、打怪類、還不知道的照舊在第一屏（inDetail＝false）。同一步兩處只會有一處出字
@@ -5153,7 +5721,9 @@ function walkForGo(go,walk){
 // rows＝要輸出哪幾列（預設三列全出；大卡把「去哪」放在指令前、「做什麼／怎樣算做完」放在注意後，分兩次呼叫）
 function triHtml(s,eta,rows){
   rows=rows||['go','act','fin'];
-  var sw=optSwap(s),go=sw?sw.go:s.go,wkc=sw?sw.walk:s.walk,ac=sw?sw.act:s.act;   // 批 15：上一站是加做步驟（抓書）時換成土黎版的字
+  var sw=optSwap(s),go=sw?sw.go:s.go,wkc=sw?sw.walk:s.walk,ac=sw?sw.act:s.act,hfx=holdF(s);   // 批 15：上一站是加做步驟（抓書）時換成土黎版的字
+  if(hfx){if(hfx.go)go=hfx.go;ac=hfx.act||TXT25B.fAct.split('{npc}').join(hfx.npc);}   // 批 25-B：先不交那天只打怪的那幾步，「去哪」「做什麼」只說到打夠
+  if(!wkc&&(s.holdOf||s.holdGo)&&s.hn&&s.hn[0]!==null)wkc=holdWalkText(s);   // 批 25-B：最後一趟的站，格數照今天實際的上一站查表，查不到寫「沒算」
   var g=go?fmt(go):'這步沒有指定地點';
   var wk=wkc?walkForGo(go,wkc):'';
   if(wk)g+='，走 '+fmt(wk);
@@ -5713,7 +6283,12 @@ function expandRow(id){
 }
 // 整頁重畫：只有「記錄」類動作（會改進度、位置）才走這裡，每呼叫一次 ui.nRender 加 1（測試用：「看」類動作不該讓它增加）。實際工作在 fullRender
 function renderFlow(){ui.nRender=(ui.nRender|0)+1;fullRender();}
+// 批 25-B：這一次畫面內「白天最後一步」「日況」「哪一區有站」只算一次；畫到一半丟錯也一定在結束時清掉（不然丟錯那一刻的值會殘留到下一次判斷）
 function fullRender(){
+  ui.holdEndOn=true;ui.holdEndC=null;ui.holdDsC=undefined;ui.holdVisC=null;
+  try{fullRender0();}finally{ui.holdEndOn=false;ui.holdEndC=null;ui.holdDsC=undefined;ui.holdVisC=null;}
+}
+function fullRender0(){
   DYN.dogSeen=P.dogSeen;   // 找小狗的時間估計跟著「這點找過」更新（見 dogCells）
   var all=allVisibleSteps();
   var cur=firstUndone(all,P.done);
@@ -5725,12 +6300,13 @@ function fullRender(){
     h+='<p class="maps">'+zhifyHtml(esc(sg.maps))+'</p>';
     if(sg.intro)h+='<p class="segnote">'+fmt(sg.intro)+'</p>';
     h+=chainListHtml(sg.id);
-    var gateDone={},hk;   // 批 21-A：打怪組在這一段收成一行的提示，同一組只畫一次
+    var gateDone={},hk,holdDone={};   // 批 25-B：holdDone＝這一段已經畫過一行小字的單位   // 批 21-A：打怪組在這一段收成一行的提示，同一組只畫一次
     for(var j=0;j<sg.items.length;j++){
       var it=sg.items[j];
       if(it.kind==='choice'){h+=dirChoiceHtml(it.key);}
       else if(it.kind==='outing'){h+=outingHtml();}
-      else if(stepShown(it,TC())){segHas=true;h+=dirRowHtml(it,cur)+(ui.open[it.id]?stepHtml(it,it.id===cur):'');}   // 改：批 17-B，前置步驟別天做完就不再出現
+      else if(stepShown(it,TC())){segHas=true;if(holdF(it))h+=holdRowHtml(it);h+=dirRowHtml(it,cur)+(ui.open[it.id]?stepHtml(it,it.id===cur):'');}   // 改：批 17-B，前置步驟別天做完就不再出現；批 25-B：只打怪的那幾步，前面先畫一行小字
+      else if(holdHid(it.id)&&holdE(it.id).ty!=='x'&&holdBase(it,TC())){if(!holdDone[holdU(it.id)]){holdDone[holdU(it.id)]=true;segHas=true;h+=holdRowHtml(it);}}   // 批 25-B：先不交那天被藏起來的原步驟，原位置留一行小字（同一個單位這一段只畫一次）
       else if(huntAny()){hk=huntOfStep(it);if(hk&&!gateDone[hk]&&huntGated(it)&&huntPlanned(hk)&&huntRawVal(hk)===it.when[hk]){gateDone[hk]=true;segHas=true;h+=huntGateRowHtml(hk);}}   // 批 21-A：今天有排、這一步屬於它目前的模式、而且被等級收起來的第一步，先畫一行
     }
     if(sg.outro){h+='<ul class="notes">';for(var k=0;k<sg.outro.length;k++)h+='<li>'+fmt(sg.outro[k])+'</li>';h+='</ul>';}
@@ -5865,7 +6441,7 @@ function flowBaseMax(){
       sg=DATA.segments[si];
       for(ii=0;ii<sg.items.length;ii++){
         it=sg.items[ii];
-        if(it.kind||it.once)continue;
+        if(it.kind||it.once||it.holdOf||it.holdGo||it.holdPot)continue;   // 改：批 25-B，最後一趟的分身不算基本流程
         skip=false;
         if(it.when&&typeof it.when==='object'){for(k in it.when){if(Object.prototype.hasOwnProperty.call(it.when,k)&&optKey(k)){skip=true;break;}}}
         if(skip||!whenOk(it.when,combos[ci]))continue;
@@ -6023,6 +6599,7 @@ function optRepSig(){
   if(typeof DATA==='undefined'||!DATA||!DATA.report)return '';
   for(i=0;i<DATA.report.length;i++){
     k=DATA.report[i][2];
+    if(k==='hold'&&holdUsed()&&out.indexOf(k)<0)out.push(k);   // 批 25-B：先不交的 6 題
     if(k&&k!=='lv'&&optKey(k)&&optVal(k)!=='off'&&out.indexOf(k)<0)out.push(k);   // 改：批 18-C，裁決 F5，虛擬開關 lgx 的題任一個打開就出現
   }
   return out.join(',');
@@ -6387,7 +6964,7 @@ function dailyHeroHtml(all,cur){
   // 2026-11-20：「現在這一步・今天還要…」＋（每段第一步的）開始計時小鈕併成一行；只有「這步之前就該選」的抽籤才放大卡上方，
   // 接了任務才知道的抽籤（例：便當送給誰）改放大卡裡「怎樣算做完」後面
   var pcb=pendingChoices(cur,true),pca=afterChoices(cur),prm=remindChoices(cur),aft='';
-  h+='<p class="hero-lab hero-now" id="etaLine">現在這一步<span class="nowEta">・今天還要'+esc(fmtRange(rem[0],rem[1]))+(remainNoFight()?esc(TXT22B.etaNoFight):'')+'</span>'+startHtml(cur)+'</p>';
+  h+='<p class="hero-lab hero-now" id="etaLine">現在這一步<span class="nowEta">・今天還要'+esc(fmtRange(rem[0],rem[1]))+(remainNoFight()?esc(TXT22B.etaNoFight):'')+holdEtaNote()+'</span>'+startHtml(cur)+'</p>';
   // 批 9 A3：被抽籤擋住時，大卡只顯示那一題（題目、選項、「兩支抽到不一樣」）；下一步的卡片收成一行「選好之後：〈短名〉」，選完（放行）自動變回一般大卡。
   // 卡內主按鈕「選擇任務對象」照舊只走 mainBtnHtml（規則 B）
   if(stepGate(cur).why==='choice'){
@@ -6411,7 +6988,7 @@ function dailyHeroHtml(all,cur){
   }
   for(i=0;i<pca.length;i++)aft+=choiceHtml(pca[i],'h');
   var s=null;for(i=0;i<all.length;i++){if(all[i].id===cur){s=all[i];break;}}
-  h+=stepHtml(s,true,true,{after:aft});
+  h+=holdHeroPre(s)+stepHtml(s,true,true,{after:aft});   // 改：批 25-B，先不交模式：只打怪的那幾步與 3-4 前面多一行小字、最後一趟的站前面多一行總覽
   return h;
 }
 // 「這步之後才要選」的抽籤（接了任務才看得到抽到誰）：放在這張卡裡
@@ -6440,8 +7017,8 @@ function lastDoneText(){
 function oldDayLine(){
   var all=allVisibleSteps(),cur=curStepId(),dc=dayCounts(all,P.done),dn=dc.done,sk=dc.skip.length,cf;
   cf=cur?findStep(cur):null;
-  if(!cur)return '舊的一天（遊戲日 '+P.day+'）的行程都完成了，做完 '+dn+' 步、跳過 '+sk+' 步。';
-  return '舊的一天（遊戲日 '+P.day+'）做到：'+(cf?stepNm(cf.s):cur)+'，做完 '+dn+' 步、跳過 '+sk+' 步。';
+  if(!cur)return '舊的一天（遊戲日 '+P.day+'）的行程都完成了，做完 '+dn+' 步、跳過 '+sk+' 步。'+holdOldTail();   // 改：批 25-B，先不交那天句尾多「還有 N 站沒交」
+  return '舊的一天（遊戲日 '+P.day+'）做到：'+(cf?stepNm(cf.s):cur)+'，做完 '+dn+' 步、跳過 '+sk+' 步。'+holdOldTail();
 }
 // ---- 批 21-A：打怪任務勾選的畫面——開場卡的勾選區（#huntCard）、開始之後大卡下面那一行（#huntLine）、流程裡收成一行（.hgate）。設定存在 K.hunt、今天的排法凍結在 P.hunt（見 LOGIC 區與讀存檔那一段）
 // 日況（裁決 R1）：start＝今天還沒開始（照目前勾選即時算）；ok＝今天進行中（格子與摘要看凍結的 P.hunt）；old＝畫面上是舊的一天（ask、old；只看 P.hunt，勾選只改 K.hunt，格子寫 stNext）
@@ -6580,7 +7157,7 @@ function huntBodyHtml(withSum){
   for(i=0;i<bs.length;i++)h+=huntBandHtml(bs[i]);
   return h;
 }
-function huntCardHtml(){return huntAny()?'<div class="hunt" id="huntCard">'+huntBodyHtml(true)+'</div>':'';}
+function huntCardHtml(){return huntAny()?'<div class="hunt" id="huntCard">'+(holdD()?huntCardInner():huntBodyHtml(true))+'</div>':'';}   // 改：批 25-B，有 DATA.hold 時開場卡的打怪任務收成一行
 function huntLineInner(){
   var open=!!ui.huntOpen.line;
   return '<span class="hsum">'+esc(huntSumText())+'</span><button type="button" class="btn mini" data-act="hopen" data-k="line" data-blk="huntOpen|line" data-lo="'+esc(HUNT_TXT.close)+'" data-lc="'+esc(HUNT_TXT.edit)+'" aria-expanded="'+open+'" aria-controls="hb-line">'+esc(open?HUNT_TXT.close:HUNT_TXT.edit)+'</button><div id="hb-line"'+(open?'':' hidden')+'>'+huntBodyHtml(false)+'</div>';
@@ -6598,7 +7175,7 @@ function renderHuntUi(){
   if(!huntAny())return;
   if(!realDom()){fullRender();return;}
   c=document.getElementById('huntCard');
-  if(c&&dayShowsCard())c.innerHTML=huntBodyHtml(true);
+  if(c&&dayShowsCard())c.innerHTML=(holdD()?huntCardInner():huntBodyHtml(true));
   renderHuntLine();
 }
 // 流程裡收成一行：這組今天有排、這一步屬於它目前的模式、而且被收起來的第一步，先畫這一行
@@ -6679,10 +7256,10 @@ function dayCardHtml(){
     h+='<p class="daylast">'+esc(oldDayLine())+'</p>'
       +'<div class="hq-btns"><button type="button" class="btn big" data-act="dayold">先做完舊的一天</button></div>';
   }
-  h+=huntCardHtml()+'<h3 class="dayq">你現在在哪？</h3><div class="hq-btns">'   // 改：批 21-A，打怪任務勾選區（沒有打怪組時是空字串，整張卡逐字不變）
+  h+=(holdD()?'':huntCardHtml())+'<h3 class="dayq">你現在在哪？</h3>'+holdOnLine()+'<div class="hq-btns">'   // 改：批 21-A，打怪任務勾選區（沒有打怪組時是空字串，整張卡逐字不變）
     +'<button type="button" class="btn primary big" data-act="daystart" data-k="save">在鋼都儲存點，開始</button>';
   if(sp)h+='<button type="button" class="btn big" data-act="daystart" data-k="last">還在上次確認的地點（'+esc(atShort(sp.n,sp.m))+'），開始</button>';
-  h+='<button type="button" class="btn big" data-act="daystart" data-k="other">其他位置…</button></div>'+packLineHtml()+'</section>';
+  h+='<button type="button" class="btn big" data-act="daystart" data-k="other">其他位置…</button></div>'+holdStartNote()+(holdD()?huntCardHtml()+holdCardHtml():'')+packLineHtml()+'</section>';   // 改：批 25-B 小批 25B-d，有 DATA.hold 時開始鈕搬到最上面，打怪任務與「今天先不交」排在開始鈕下面、出門前檢查前面
   return h;
 }
 // 今天開始卡最後一行：出門前檢查今天做到哪（每天都是從零開始，勾選每天清掉——礦石、材料每天會用掉）。一項都沒勾＝還沒看；勾了一部分＝還有 N 項沒確認；全勾＝都確認過了
@@ -6815,17 +7392,17 @@ function renderInfo(){
     if(st.steps[1]===0){none[sg.id]=true;continue;}
     for(k=0;k<STEP_TAGS.length;k++){rg=st.tags[STEP_TAGS[k]];if(rg&&rg[1]>0)tg.push(STEP_TAGS[k]+' '+rangeNum(rg)+' 步');}
     r=segTime(sg.id,TC(),K.hist);
-    h+='<tr><th>'+esc(sg.name)+'</th><td>'+esc(rangeNum(st.steps))+' 步</td><td class="l">'+(tg.length?esc(tg.join('、')):'沒有特別標籤')+'</td><td>'+esc(fmtRange(r[0],r[1]))+'</td></tr>';
+    h+='<tr><th>'+esc(sg.name)+'</th><td>'+esc(rangeNum(st.steps))+' 步</td><td class="l">'+(tg.length?esc(tg.join('、')):'沒有特別標籤')+'</td><td>'+esc(fmtRange(r[0],r[1]))+holdInfoNote(sg.id)+'</td></tr>';
   }
   h+='</tbody></table>';
   h+='<table class="ttab"><thead><tr><th></th><th>估計最少</th><th>估計最多</th></tr></thead><tbody>';
   for(i=0;i<DATA.segments.length;i++){
     if(none[DATA.segments[i].id])continue;
     r=segTime(DATA.segments[i].id,TC(),K.hist);
-    h+='<tr><th>'+esc(DATA.segments[i].name)+'</th><td>'+esc(fmtRange(r[0],r[0]))+'</td><td>'+esc(fmtRange(r[1],r[1]))+'</td></tr>';
+    h+='<tr><th>'+esc(DATA.segments[i].name)+'</th><td>'+esc(fmtRange(r[0],r[0]))+'</td><td>'+esc(fmtRange(r[1],r[1]))+holdInfoNote(DATA.segments[i].id)+'</td></tr>';
   }
   t=remainTime({},TC(),K.hist);
-  h+='<tr class="sum"><th>合計</th><td>'+esc(fmtRange(t[0],t[0]))+'</td><td>'+esc(fmtRange(t[1],t[1]))+'</td></tr></tbody></table>';
+  h+='<tr class="sum"><th>合計</th><td>'+esc(fmtRange(t[0],t[0]))+'</td><td>'+esc(fmtRange(t[1],t[1]))+holdInfoNote('*')+'</td></tr></tbody></table>';
   h+='<p class="small">這是「估計時間範圍」：走路用格數算（程式實算），講話、打怪是估計值。打怪、找路、還不知道的任務沒辦法保證時間不會超過上限。同一步你有 3 次以上的紀錄，才改用你的紀錄。</p>';
   el.innerHTML=h+renderRows(DATA.info);
 }
@@ -6841,7 +7418,7 @@ function renderTop(all,cur){
     // 進度不倒退（方向 #26）：主文字是「〈段名〉／〈這一步〉／〈狀態〉」，步數只是後面的小字；抽籤還沒選齊時總步數會變，後面加「（後續依任務對象調整）」
     var pos=0,cf=findStep(cur),csg=segOfStep(cur);for(i=0;i<all.length;i++){if(all[i].id===cur){pos=i+1;break;}}
     main=(csg?csg.name:'')+'／'+(cf?stepNm(cf.s):cur)+'／'+stepStateWord(cur);
-    sub='第 '+pos+' 步，共 '+all.length+' 步'+(choiceCombos(TC(),choiceDefs(DATA.choices)).length>1?'（後續依任務對象調整）':'')+'｜已完成任務：'+qn;
+    sub='第 '+pos+' 步，共 '+all.length+' 步'+(choiceCombos(TC(),choiceDefs(DATA.choices)).length>1?'（後續依任務對象調整）':'')+'｜已完成任務：'+qn+holdTopSay();   // 改：批 25-B，先不交那天頁首多一句
     line=main+'　'+sub;
     // 批 11-6：從第一個開門步驟（批 13 起是 3-1）起，整天都顯示（收工後才消失）；分母＝今天實際要開的門
     var firstOre=-1;
@@ -7000,7 +7577,7 @@ function renderPack(){
   }
   h+='</ul><ul class="notes">';
   for(var j=0;j<DATA.packNotes.length;j++)h+='<li>'+fmt(DATA.packNotes[j])+'</li>';
-  document.getElementById('packBody').innerHTML=h+'</ul>';
+  document.getElementById('packBody').innerHTML=holdPackHtml()+h+'</ul>';   // 改：批 25-B，先不交那天清單上方多一塊（件數不變）
   var pcn=0,pcel=document.getElementById('packCount');
   for(var pk=0;pk<DATA.pack.length;pk++){if(st['p'+pk])pcn++;}
   // 「繼續看上一輪」時這份勾是上一輪的（P.pack），標題寫清楚；上一輪還沒收起來（今天開始卡）時看到的是今天的（還沒開始，先記著）
@@ -7010,7 +7587,7 @@ function renderReportFields(){
   var h='',dh='',dn=0,da=0,rdOpen,rdTitle;   // 批 23-A2：dh＝已確認區的題（每題照樣是原樣的一格，有輸入格），dn 題數、da 其中有字的題數
   optRepShown=optRepSig();   // 批 17-C：第三欄是開關鍵的題，開關打開（或那題已經有答案）才出現
   for(var i=0;i<DATA.report.length;i++){
-    var rk=DATA.report[i][2];if(rk&&rk!=='lv'&&optKey(rk)&&optVal(rk)==='off'&&!K.report['q'+i])continue;   // 改：批 18-C，裁決 F5，虛擬開關 lgx 的題任一個打開就出現（抓書、阿伊健：optVal!=='off' 等於 optOn）
+    var rk=DATA.report[i][2];if(rk==='hold'&&!holdUsed()&&!K.report['q'+i])continue;if(rk&&rk!=='lv'&&optKey(rk)&&optVal(rk)==='off'&&!K.report['q'+i])continue;   // 改：批 18-C，裁決 F5，虛擬開關 lgx 的題任一個打開就出現（抓書、阿伊健：optVal!=='off' 等於 optOn）
     var v=K.report['q'+i]||'';
     var fh='<div class="fld"><label for="rp_'+i+'">'+(i+1)+'. '+esc(DATA.report[i][0])+'</label><span class="why">為什麼重要：'+esc(DATA.report[i][1])+'</span><input type="text" id="rp_'+i+'" data-rp="q'+i+'" value="'+esc(v)+'"></div>';
     if(REP_DONE.indexOf(i)>=0){dh+=fh;dn++;if(v)da++;}else h+=fh;   // 批 23-A2：已確認的題收進最下面一塊（主區照原順序）
@@ -7130,6 +7707,7 @@ function doDayStart(at){
       ui.open={};ui.ptsAll={};ui.ptView={};
     }
     P.at=at;P.atStk=[];P.dayStart=Date.now();P.lastAct=P.dayStart;delete P.contDay;
+    if(!had){if(K.hold===true)P.hold=true;else delete P.hold;}   // 批 25-B：按「開始」那一刻凍結今天是不是先不交（今天已經開始過就不改）
     if(huntAny()&&!(had&&huntShape(P.hunt)))P.hunt=huntFreeze();   // 批 21-A：按「開始」那一刻凍結今天要排的組與收起來的步驟（之後才勾、才跨過等級的，隔天才排）
     if(ob0===null)obSync(onceVisIds());else obSync(onceVisIds().filter(function(x){return ob0.indexOf(x)<0;}));   // 批 22-B3（C5）：換日＝全部都是新的；不換日只加凍結後才看得到的
     // 今天開始卡出現期間勾的「出門前檢查」（K.packPending）放進今天的進度，不被默默清掉
@@ -7158,7 +7736,7 @@ function restoreDay(){
     r.at=(P.at!==null&&P.at!==undefined)?P.at:(hasProgress(r)?{k:'unk',by:'restore'}:null);
     r.atStk=Array.isArray(P.atStk)?P.atStk.slice():[];
     r.dayStart=P.dayStart||Date.now();delete r.contDay;   // 今天已經開始了（復原鈕只在開始後出現）
-    if(P.hunt!==undefined)r.hunt=JSON.parse(JSON.stringify(P.hunt));else delete r.hunt;   // 批 21-A（D14）：打怪組用今天的凍結，不用上一輪的
+    if(P.hunt!==undefined)r.hunt=JSON.parse(JSON.stringify(P.hunt));else delete r.hunt;delete r.potAgain;   // 批 21-A（D14）：打怪組用今天的凍結，不用上一輪的
     // 批 22-A1（3-3）：subAuto 跟 sub 走（今天有那一步的 sub 就用今天的 subAuto，沒有就刪）；paused 跟 times 走（今天 times 或 paused 有那一步就用今天的，沒有就刪）；其餘留舊的
     var po=function(x){return !!x&&typeof x==='object'&&!Array.isArray(x);};
     if(!po(r.subAuto))r.subAuto={};
@@ -7535,7 +8113,7 @@ function syncC2(){
   for(i=0;i<DATA.segments.length;i++){
     for(j=0;j<DATA.segments[i].items.length;j++){
       it=DATA.segments[i].items[j];
-      if(it.kind||!it.when||it.when==='outing')continue;
+      if(it.kind||!it.when||it.when==='outing'||holdSkipScan(it))continue;   // 批 25-B：先不交模式的分身（沒勾那天不存在）與被藏起來的原步驟不記
       want=c2Want(it,ch);   // 批 22-A2：判斷抽出去給 ubDrop 共用（行為不變）
       rec=P.done[it.id];ca=c2Cell(rec);
       if(rec&&rec.c2&&!ca&&want&&rec.r===2&&rec.p===2&&rec.ub&&rec.ub.r&&rec.ub.p)ca=want;   // 批 22-A2：兩格都有 ub 時 c2Cell 認不出 c2 是哪一格，抽籤沒變就照舊
@@ -7564,7 +8142,7 @@ function c2Snapshot(){
   for(i=0;i<DATA.segments.length;i++){
     for(j=0;j<DATA.segments[i].items.length;j++){
       it=DATA.segments[i].items[j];
-      if(it.kind||!it.when||it.when==='outing')continue;
+      if(it.kind||!it.when||it.when==='outing'||holdSkipScan(it))continue;   // 批 25-B
       o[it.id]=c2Cell(P.done[it.id])||'';
     }
   }
@@ -7594,7 +8172,7 @@ function choiceImpact(key,val){
   for(i=0;i<DATA.segments.length;i++){
     for(j=0;j<DATA.segments[i].items.length;j++){
       it=DATA.segments[i].items[j];
-      if(it.kind||!P.done[it.id]||!whenOk(it.when,a)||whenOk(it.when,b))continue;
+      if(it.kind||holdSkipScan(it)||!P.done[it.id]||!whenOk(it.when,a)||whenOk(it.when,b))continue;   // 改：批 25-B
       if(autoOnlyRec(P.done[it.id]))continue;   // 只有自動記的「今天沒有這項」（c2 或 ub），不算玩家的紀錄（批 22-A2：原本只看 c2）
       out.push(it.id);
     }
@@ -7627,6 +8205,7 @@ function optImpact(k){
     for(j=0;j<v.any.length;j++){if(v.any[j]!==k&&optPlanned(v.any[j])){sole=false;break;}}   // 改：批 21-A，成員是打怪組時看今天有沒有排（收起來或沒排就不算「還開著」，共用的 2-11a 才會一起清）
     if(sole){sh=v.steps||[];ids=sh.concat(ids);}
   }
+  ids=ids.concat(holdTwins(ids));   // 批 25-B：關掉開關時，最後一趟的分身紀錄也一起清
   recs=optRecs(ids);
   for(i=0;i<ids.length;i++){
     f=findStep(ids[i]);
@@ -7642,7 +8221,7 @@ function optLate(k,aft){
     on=false;
     for(j=0;j<DATA.segments[i].items.length;j++){
       it=DATA.segments[i].items[j];
-      if(it.kind)continue;
+      if(it.kind||holdSkipScan(it))continue;   // 改：批 25-B
       if(it.id===a)on=true;
       if(on)ids.push(it.id);
     }
@@ -7986,6 +8565,14 @@ function clickMain(e){   // 批 22-B4：原本直接掛在 document 的 click �
     ui.huntAsk=null;askRender();   // 看：不進撤銷、不加 nRender
   }else if(act==='hopen'){
     toggleBlock(a,'huntOpen',a.getAttribute('data-k'));   // 看：展開／收起勾選區的等級段與大卡下面那一行
+  }else if(act==='hold'){
+    applyHold(a.getAttribute('data-v')==='on');   // 批 25-B：開場卡「今天先不交」（走 recordAct，可撤銷）
+  }else if(act==='holdno'){
+    applyHoldNo(a.getAttribute('data-k'));   // 批 25-B：〔這一個今天照常交〕
+  }else if(act==='potagain'){
+    applyPotAgain();   // 批 25-B：〔再喝一瓶，重新倒數〕
+  }else if(act==='preopen'){
+    holdPreOpen();   // 批 25-B 看：打開前置任務卡，不進撤銷
   }else if(act==='lvset'){
     applyLvUi();   // 批 16：依等級列任務；改等級走 recordAct（可撤銷），不動今天的進度；批 23-B3：applyLvUi＝applyLv＋存成功而還沒選「比你低的」時那一塊這一次維持打開
   }else if(act==='belowset'){
@@ -8339,7 +8926,7 @@ function doReset(kind){
   if(kind==='setup'||kind==='all'){delete K.setupDone;delete K.setupMode;K.setupChecks={};}
   if(kind==='hist'||kind==='all')K.hist={};
   if(kind==='mobs'||kind==='all')K.aggro={};
-  if(kind==='all'){K.report={};delete K.tourSeen;delete K.prev;delete K.opts;delete K.lv;delete K.below;delete K.once;delete K.onceBy;delete K.hunt;ui.lvErr={};obSync(onceVisIds());saveP();}   // 改：批 21-A，連打怪組的勾選一起清（K.huntV 留著＝不再轉換，三組全勾）   // 批 15：「全部清空」連加做開關一起清；其他四種重置不動開關。批 17-B：連前置紀錄一起清
+  if(kind==='all'){K.report={};delete K.tourSeen;delete K.prev;delete K.opts;delete K.lv;delete K.below;delete K.hold;delete K.once;delete K.onceBy;delete K.hunt;ui.lvErr={};obSync(onceVisIds());saveP();}   // 改：批 21-A，連打怪組的勾選一起清（K.huntV 留著＝不再轉換，三組全勾）   // 批 15：「全部清空」連加做開關一起清；其他四種重置不動開關。批 17-B：連前置紀錄一起清
   saveK();
   ui.mobPick=null;
   renderSetup();renderPack();renderReportFields();renderBanner();renderFlow();refreshMobUi();
@@ -9134,7 +9721,7 @@ syncReadyAt=Date.now();
   else if(m==='notelost')syncToast6(TXT22B.syncNoteLost);
   else{try{sessionStorage.removeItem(SYNC_LOOPK);}catch(e){}}
 })();
-function minuteTick(){checkDay();renderResetLine();}
+function minuteTick(){checkDay();renderResetLine();holdTick();}   // 改：批 25-B，先不交那天每分鐘換藥水與離 4 點的字
 setInterval(minuteTick,60000);
 document.addEventListener('visibilitychange',function(){
   if(!document.hidden){
