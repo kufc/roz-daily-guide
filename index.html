@@ -2654,9 +2654,25 @@ function holdTwins(ids){
   }
   return out;
 }
+// 批 25-E（E2）：這一步有沒有「玩家自己記的紀錄」：P.done[id] 的 r、p 任何一格不是 0、而且不是自動格（ub、ob），或 P.sub[id] 任何一項有值（不是自動記的）。只記一支、按今天不做都算
+function holdMine(id){
+  var rc,sb,sa,w,i,k,v,ws=['r','p'];
+  if(typeof P==='undefined'||!P)return false;
+  rc=P.done?P.done[id]:null;
+  if(rc&&typeof rc==='object'){for(i=0;i<2;i++){w=ws[i];if(rc[w]&&!(rc.ub&&rc.ub[w])&&!(rc.ob&&rc.ob[w]))return true;}}
+  sb=P.sub?P.sub[id]:null;
+  if(sb&&typeof sb==='object'){
+    for(k in sb){
+      if(!Object.prototype.hasOwnProperty.call(sb,k))continue;
+      v=sb[k];sa=(P.subAuto&&P.subAuto[id])?P.subAuto[id][k]:null;
+      if(v&&typeof v==='object'){for(i=0;i<2;i++){w=ws[i];if(v[w]&&!(sa&&sa[w]))return true;}}
+    }
+  }
+  return false;
+}
 // 出不出現（接在 stepShown 最後）：沒有 DATA.hold、今天不是先不交 → 分身、移動、吃藥水都不出現，原步驟照舊
 function holdOk(it,ch){
-  var d,e,u,o,al,pd,inH;
+  var d,e,u,o,al,mine,his,inH;
   if(!it.holdOf&&!it.holdGo&&!it.holdPot&&!((typeof K!=='undefined'&&!!K&&K.hold===true)||(typeof P!=='undefined'&&!!P&&P.hold===true)))return true;   // 沒用過先不交的人、普通步驟：最快的路（stepShown 是全頁最常被呼叫的函式）
   d=holdD();
   if(!d)return true;
@@ -2666,9 +2682,8 @@ function holdOk(it,ch){
     if(!holdAct(u)||!holdBase(holdFind(it.holdOf),ch))return false;
     al=holdAlt(it.id);
     if(al){
-      pd=(typeof P!=='undefined'&&P&&P.done)?P.done:{};
-      if(isRealDone(pd[it.id]))return true;
-      if(isRealDone(pd[al]))return false;
+      mine=holdMine(it.id);his=holdMine(al);   // 批 25-E：有玩家紀錄的那個留在原位（只記一支、按今天不做也算）；只有一個有 → 它出現、另一個不出現；兩個都沒有、或兩個都有（舊資料，不合併）→ 照位置規則
+      if(mine!==his)return mine;
       inH=!!(d.hEnd&&d.hEnd.indexOf(holdEnd(ch))>=0);
       return it.id==='8-2a'?inH:!inH;
     }
@@ -4788,8 +4803,10 @@ function holdHeroPre(s){
 }
 // 每分鐘：只換藥水與離 4 點那兩段字，不整頁重畫；兩件事的「有沒有」變了（剛好過 90 分鐘、藥水不夠了）才重畫
 function holdTick(){
-  var a,b,sg;
-  if(!holdOn()||dayState()!=='ok')return;
+  var a,b,sg,ds;
+  if(!holdOn())return;
+  ds=dayState();
+  if(ds!=='ok'&&ds!=='old')return;   // 批 25-E：繼續上一輪（old）時倒數也要照常更新，跟 holdTopSay 用的判斷一致；start、ask 仍然不動
   if(ui.holdTripSig!==undefined){
     sg=(holdPotStart()?'p':'-')+(holdResetShow()?'r':'-')+((holdPotStart()&&ui.holdTripMax>Math.max(0,holdPotLeftMs()/1000))?'s':'-');
     if(sg!==ui.holdTripSig){renderFlow();return;}
@@ -7720,12 +7737,69 @@ function doDayStart(at){
   }catch(e){}
   renderPack();renderFlow();renderBanner();scrollToHero();
 }
+// 批 25-E（E1）：復原舊的一天時，兩種模式（先不交／照常交）不同，舊的一天的紀錄要搬到「今天這個模式看得到的那張卡」（不然模式對了、紀錄還是被藏起來）。
+// 以步驟 id 為鍵的欄位才搬（P.start 以段落 id 為鍵、不搬）。r＝舊的一天那份進度的複本（還沒疊上今天的，所以疊上去之後今天自己記的以今天為準）；yHold、yNo＝舊的一天的 hold、holdNo；tHold、tNo＝今天的。
+// 每個原步驟看它的單位（u）：舊的一天的紀錄是在分身（先不交、沒按〔這一個今天照常交〕）還是在原步驟，今天的畫面要它在哪；一樣就不動。類別 r、g、b、d、x＝藏起來的（紀錄整個搬）；f＝白天只打怪（原步驟留著、分身是回報）。
+// 回傳沒搬的原步驟 id（小項對不上、兩邊都已經有紀錄、兩個艾蜜莉分身都有紀錄）；兩種模式相同、沒有任何單位的位置不同時，什麼都不動。
+var HOLD_RECF=['done','sub','subAuto','times','paused','counted','nocount','ptDone','notes'];
+function holdRecHas(r,id){var i,m;for(i=0;i<HOLD_RECF.length;i++){m=r[HOLD_RECF[i]];if(m&&typeof m==='object'&&ownKey(m,id))return true;}return false;}
+function holdRecMove(r,from,to){var i,m;for(i=0;i<HOLD_RECF.length;i++){m=r[HOLD_RECF[i]];if(m&&typeof m==='object'&&ownKey(m,from)){m[to]=m[from];delete m[from];}}}
+function holdRecDrop(r,id){var i,m;for(i=0;i<HOLD_RECF.length;i++){m=r[HOLD_RECF[i]];if(m&&typeof m==='object'&&ownKey(m,id))delete m[id];}}
+function holdSubKeys(s){var a=[],l=(s&&s.subs)||[],i;for(i=0;i<l.length;i++)a.push(l[i].k);return a.sort().join(',');}
+function holdRestoreMove(r,yHold,yNo,tHold,tNo){
+  var d=holdD(),sg=d?findSeg(d.seg):null,skipped=[],o,e,ty,u,yAt,tAt,tw,has,i,it,os,t,k,w,rec,trec,real,bad;
+  if(!sg||!r.done||typeof r.done!=='object')return skipped;
+  for(o in d.steps){
+    if(!ownKey(d.steps,o))continue;
+    e=d.steps[o];ty=e.ty;
+    if(ty!=='f'&&ty!=='r'&&ty!=='g'&&ty!=='b'&&ty!=='d'&&ty!=='x')continue;
+    u=e.u||o;
+    yAt=!!yHold&&!(yNo&&yNo[u]===true);tAt=!!tHold&&!(tNo&&tNo[u]===true);   // 紀錄在分身的那一邊
+    if(yAt===tAt)continue;
+    tw=[];for(i=0;i<sg.items.length;i++){it=sg.items[i];if(!it.kind&&it.holdOf===o)tw.push(it);}
+    if(!tw.length)continue;   // 沒有分身（x 類，例：1-8c）：原步驟藏起來而已，紀錄不動
+    os=holdFind(o);
+    if(ty==='f'){
+      t=tw[0];
+      if(tAt){
+        if(r.done[o]&&!holdRecHas(r,t.id))r.done[t.id]=JSON.parse(JSON.stringify(r.done[o]));   // 昨天照常交、今天先不交：昨天連回報都做了，分身（回報）也算做完
+      }else{
+        rec=r.done[o];trec=r.done[t.id];
+        if(rec){   // 昨天先不交、今天照常交：這一步含回報，要打怪與回報同一格都做完才算做完，否則清成沒做（寧可多按一次，不把沒回報的當成回報了）
+          real=isRealDone(rec);
+          for(k=0;k<2;k++){w=k?'p':'r';if(rec[w]===1&&!(trec&&trec[w]===1))rec[w]=0;}
+          if(!rec.r&&!rec.p)delete r.done[o];
+          if(real&&!isRealDone(r.done[o])&&r.times&&typeof r.times==='object')delete r.times[o];
+        }
+        for(i=0;i<tw.length;i++)holdRecDrop(r,tw[i].id);   // 今天沒有分身
+      }
+      continue;
+    }
+    if(tAt){   // 原步驟 → 分身
+      if(!holdRecHas(r,o))continue;
+      bad=false;for(i=0;i<tw.length;i++){if(holdRecHas(r,tw[i].id))bad=true;}
+      if(bad||holdSubKeys(os)!==holdSubKeys(tw[0])){skipped.push(o);continue;}
+      holdRecMove(r,o,tw[0].id);
+    }else{     // 分身 → 原步驟
+      has=[];for(i=0;i<tw.length;i++){if(holdRecHas(r,tw[i].id))has.push(tw[i]);}
+      if(!has.length)continue;
+      if(holdRecHas(r,o)){for(i=0;i<has.length;i++)holdRecDrop(r,has[i].id);continue;}   // 原步驟已經有就留原步驟的
+      if(has.length>1||holdSubKeys(os)!==holdSubKeys(has[0])){skipped.push(o);continue;}
+      holdRecMove(r,has[0].id,o);
+    }
+  }
+  if(yHold&&!tHold){   // 今天沒有吃藥水、移動這些步驟
+    for(i=0;i<sg.items.length;i++){it=sg.items[i];if(!it.kind&&!it.holdOf)holdRecDrop(r,it.id);}
+  }
+  return skipped;
+}
 function restoreDay(){
   var pv=K.prev,P0=P,saved=false;   // 批 22-A1：搬到 try 外面，catch 要用（出錯時沒存檔就退回）
   try{
     var cur=gameDay(new Date());
     if(!pv||!pv.p||pv.into!==cur)return;
     var r=JSON.parse(JSON.stringify(pv.p)),f=['done','choices','choices2','pack','notes','times','counted','sub','ptDone','start','nocount'],i,k;
+    holdRestoreMove(r,r.hold===true,r.holdNo,P.hold===true,P.holdNo);   // 批 25-E（E1）：兩種模式不同時，先把舊的一天的紀錄搬到今天看得到的那張卡，再疊上今天的
     for(i=0;i<f.length;i++){   // 昨天那份放回來；清掉之後今天已經勾的不丟，疊在上面
       if(!r[f[i]]||typeof r[f[i]]!=='object')r[f[i]]={};
       for(k in P[f[i]]){if(ownKey(P[f[i]],k))r[f[i]][k]=P[f[i]][k];}
@@ -7736,7 +7810,11 @@ function restoreDay(){
     r.at=(P.at!==null&&P.at!==undefined)?P.at:(hasProgress(r)?{k:'unk',by:'restore'}:null);
     r.atStk=Array.isArray(P.atStk)?P.atStk.slice():[];
     r.dayStart=P.dayStart||Date.now();delete r.contDay;   // 今天已經開始了（復原鈕只在開始後出現）
-    if(P.hunt!==undefined)r.hunt=JSON.parse(JSON.stringify(P.hunt));else delete r.hunt;delete r.potAgain;   // 批 21-A（D14）：打怪組用今天的凍結，不用上一輪的
+    if(P.hunt!==undefined)r.hunt=JSON.parse(JSON.stringify(P.hunt));else delete r.hunt;   // 批 21-A（D14）：打怪組用今天的凍結，不用上一輪的
+    // 批 25-E（E1）：先不交模式也用今天的，不用上一輪的（以前把昨天的 hold、holdNo 原樣帶回來，今天選的模式被換掉）
+    if(P.hold===true)r.hold=true;else delete r.hold;
+    if(P.holdNo&&typeof P.holdNo==='object'&&!Array.isArray(P.holdNo))r.holdNo=JSON.parse(JSON.stringify(P.holdNo));else delete r.holdNo;
+    if(typeof P.potAgain==='number'&&P.potAgain>0)r.potAgain=P.potAgain;else delete r.potAgain;
     // 批 22-A1（3-3）：subAuto 跟 sub 走（今天有那一步的 sub 就用今天的 subAuto，沒有就刪）；paused 跟 times 走（今天 times 或 paused 有那一步就用今天的，沒有就刪）；其餘留舊的
     var po=function(x){return !!x&&typeof x==='object'&&!Array.isArray(x);};
     if(!po(r.subAuto))r.subAuto={};
